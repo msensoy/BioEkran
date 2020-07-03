@@ -1,0 +1,18 @@
+﻿@using Uygulama.Models
+@model List<Device>
+@{
+    ViewData["Title"] = "Anasayfa";
+}
+
+<div>
+    <label>Cihazı seçiniz:</label>
+    <ul>
+        @foreach (var x in Model)
+        {
+            <li>@x.DeviceGUID</li>
+        }
+    </ul>
+</div>
+
+
+
