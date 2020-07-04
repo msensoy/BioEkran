@@ -1,0 +1,34 @@
+﻿@{
+    ViewData["Title"] = "Giriş";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+    <div class="alert-danger text-white">@ViewData["Hata"]</div>
+    <div class="row justify-content-center">
+
+        <div class="giris col-5 border">
+            <form method="post" action="">
+
+                <div class="form-group">
+                    <label for="inputMail">Mail Adresiniz</label>
+                    <input type="email" class="form-control" id="userMail" name="Email" placeholder="Mail adresi gir...">
+                </div>
+
+                <div class="form-group">
+                    <label for="inputPassword">Şifreniz</label>
+                    <input type="password" class="form-control" id="userPassword" name="Password" placeholder="Şifre gir...">
+                </div>
+
+                <div class="checkbox">
+                    <label> <input type="checkbox"> Beni Hatırla </label>
+                </div>
+
+                <a class="btn btn-info" href="/Registration/Index">Kayıt Ol</a>
+                <button type="submit" class="btn btn-success  float-right">Giriş Yap</button>
+            </form>
+        </div>
+    </div>
+
+</div>
