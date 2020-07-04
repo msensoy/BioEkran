@@ -11,25 +11,30 @@
             {
 
                 <div class="form-group">
-                    <label for="Email">Mail Adresiniz:</label>
+                    <label>Mail Adresiniz:</label>
                     @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Mail adresinizi giriniz.." })
-                    @Html.ValidationMessageFor(m=>m.Email)
+                    @Html.ValidationMessageFor(m => m.Email)
                 </div>
                 <div class="form-group">
-                    <label for="Email">Telefon Numaranız:</label>
+                    <label>Telefon Numaranız:</label>
                     @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control", placeholder = "Telefon numaranızı giriniz.." })
                     @Html.ValidationMessageFor(m => m.PhoneNumber)
                 </div>
                 <div class="form-group">
-                    <label for="Email">Şifreniz:</label>
-                    @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Mail adresinizi giriniz.." })
+                    <label>Şifreniz:</label>
+                    @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Şifrenizi giriniz.." })
                     @Html.ValidationMessageFor(m => m.Password)
                 </div>
-
                 <div class="form-group">
-                    <label for="inputPassword">Şifre Onay</label>
-                    <input type="password" class="form-control" id="inputPasswordControl" name="inputPasswordControl" placeholder="Tekrar şifreniz giriniz...">
+                    <label>Şifre Onay:</label>
+                    @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", placeholder = "Tekrar şifrenizi giriniz.." })
+                    @Html.ValidationMessageFor(m => m.ConfirmPassword)
                 </div>
+
+                @*<div class="form-group">
+                <label for="inputPassword">Şifre Onay</label>
+                <input type="password" class="form-control" id="inputPasswordControl" name="inputPasswordControl" placeholder="Tekrar şifreniz giriniz...">
+            </div>*@
 
                 <a class="btn btn-warning" href="/Login/Index">Geri Dön</a>
                 <button type="submit" class="btn btn-success  float-right">Tamamla</button>

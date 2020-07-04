@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ZN+GQjIzZxX3JlDZwnVs9DXMlYvjlDbyuwZSdSXD+Y/dBy1D4OqaYXUE9UveB+Gsh4t1LUGS1vGqGyMxYIjYBQ==",
+  "dgSpecHash": "BHCSZy+MK5D4LQxZZSQ9MwmJPHksSfOEMYat9fnMnWT+YUH7H6K5NzI9uTzbjy4ttVyBmC/6dLY5LM9Tzo8ang==",
   "success": true,
-  "projectFilePath": "C:\\Users\\MONSTER\\Desktop\\Uygulama Proje\\UygulamaUI\\UygulamaUI\\UygulamaUI.csproj",
+  "projectFilePath": "C:\\Users\\MONSTER\\GitHub\\BioEkran\\UygulamaUI\\UygulamaUI\\UygulamaUI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\MONSTER\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\MONSTER\\.nuget\\packages\\microsoft.aspnetcore.razor\\2.2.0\\microsoft.aspnetcore.razor.2.2.0.nupkg.sha512",

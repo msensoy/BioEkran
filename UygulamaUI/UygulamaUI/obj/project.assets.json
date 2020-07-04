@@ -6076,11 +6076,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\MONSTER\\Desktop\\Uygulama Proje\\UygulamaUI\\UygulamaUI\\UygulamaUI.csproj",
+      "projectUniqueName": "C:\\Users\\MONSTER\\GitHub\\BioEkran\\UygulamaUI\\UygulamaUI\\UygulamaUI.csproj",
       "projectName": "UygulamaUI",
-      "projectPath": "C:\\Users\\MONSTER\\Desktop\\Uygulama Proje\\UygulamaUI\\UygulamaUI\\UygulamaUI.csproj",
+      "projectPath": "C:\\Users\\MONSTER\\GitHub\\BioEkran\\UygulamaUI\\UygulamaUI\\UygulamaUI.csproj",
       "packagesPath": "C:\\Users\\MONSTER\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\MONSTER\\Desktop\\Uygulama Proje\\UygulamaUI\\UygulamaUI\\obj\\",
+      "outputPath": "C:\\Users\\MONSTER\\GitHub\\BioEkran\\UygulamaUI\\UygulamaUI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\MONSTER\\AppData\\Roaming\\NuGet\\NuGet.Config",

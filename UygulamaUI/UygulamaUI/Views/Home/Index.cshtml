@@ -5,27 +5,38 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-    <div class="row justify-content-end">
-        <a class="btn btn-danger" href="/Login/Index">Çıkış Yap</a>
+<div class="container">
+
+
+    <div class="row justify-content-end m-3">
+        <div class="col-9">
+            <a class="btn btn-info mr-3" href="/Login/Index">Düzenle</a>
+            <a class="btn btn-danger" href="/Login/Index">Çıkış Yap</a>
+        </div>
+        
+
     </div>
+
     <div class="row justify-content-center">
 
         <div class="col-3 border">
-            @Html.DropDownListFor(m => m.UName, new SelectList(Model.Devices, "Id", "Name"), new { @class = "form control" })
+            @Html.DropDownListFor(m => m.UName, new SelectList(Model.Devices, "Id", "Name"), "Cihaz Seçin", new { @class = "form control" })
             @*<label>Cihazı seçiniz:</label>
-            <ul>
-                @foreach (var x in Model)
-                {
-                    <li>@x.DeviceGUID</li>
-                }
-            </ul>*@
+                <ul>
+                    @foreach (var x in Model)
+                    {
+                        <li>@x.DeviceGUID</li>
+                    }
+                </ul>*@
+            @*@Html.LabelFor(x=>x.Devices.Where(t=>t.Id == dropdown seçili))*@
         </div>
+
         <div class="col-6 border ml-5">
             <p>Grafik yeri</p>
         </div>
     </div>
 
-
+</div>
 
 
 

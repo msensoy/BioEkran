@@ -24,7 +24,7 @@ namespace UygulamaUI.Controllers
             if (ModelState.IsValid)
             {
                 var apiService = new ApiServices();
-                var token = await apiService.RegisterUserAsync(user.Email, user.PhoneNumber, user.Password, user.Password);
+                var token = await apiService.RegisterUserAsync(user.Email, user.PhoneNumber, user.Password, user.ConfirmPassword);
                 if (!string.IsNullOrEmpty(token))
                 {
                     HttpContext.Session.SetString("accesstoken", token);
