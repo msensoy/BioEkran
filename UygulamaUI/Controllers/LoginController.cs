@@ -36,11 +36,6 @@ namespace UygulamaUI.Controllers
                 return RedirectToAction("Index", "Home");
             }
             ViewData["Hata"] = "Lütfen giriş bilgilerinizi kontrol ediniz";
-            //HttpContext.Session.SetString("accesstoken", "deneme");
-            //if (true)
-            //{
-            //    return RedirectToAction("Index", "Home");
-            //}
             return View();
         }
 

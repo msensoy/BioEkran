@@ -15,6 +15,8 @@ namespace UygulamaUI.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        string _accessToken = "";
+        ApiServices _apiService = new ApiServices();
 
         public HomeController(ILogger<HomeController> logger)
         {
@@ -23,23 +25,28 @@ namespace UygulamaUI.Controllers
 
         public async Task<IActionResult> Index()
         {
-            
-            string accessToken = HttpContext.Session.GetString("accesstoken");
-            if (string.IsNullOrEmpty(accessToken))
+            _accessToken = HttpContext.Session.GetString("accesstoken");
+            if (string.IsNullOrEmpty(_accessToken))
             {
                 return RedirectToAction("Index", "Login");
             }
-            var apiService = new ApiServices();
-            var devices = await apiService.GetDevicesForCurrentUserAsync(accessToken);
-            //var devices = new List<Device>()
-            //{
-            //    new Device(){ Id= 123 , Name ="Computer" },
-            //    new Device(){ Id= 456 , Name ="Phone"},
-            //    new Device(){ Id= 789 , Name ="TV"}
-            //};
-
-            var selectlist = new SelectList(devices, "DeviceGUID", "DeviceGUID"); //value , name
+            var devices = await _apiService.GetDevicesForCurrentUserAsync(_accessToken);
+            
+            if (devices == null)
+            {
+                devices = new List<Device>();
+            }
+            var selectlist = new SelectList(devices, "DeviceGUID", "Name"); 
             return View(selectlist);
+        }
+
+
+        public async Task<JsonResult> DeviceName(string DeviceGUID)
+        {
+            _accessToken = HttpContext.Session.GetString("accesstoken");
+            var devices = await _apiService.GetDevicesForCurrentUserAsync(_accessToken);
+            var deviceName = devices.Where(x => x.DeviceGUID == DeviceGUID).FirstOrDefault().DeviceGUID;
+            return Json(deviceName);
         }
 
         public IActionResult Privacy()
