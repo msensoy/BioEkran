@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Logging;
 using UygulamaUI.Models;
 using UygulamaUI.Services.Data;
@@ -36,14 +37,9 @@ namespace UygulamaUI.Controllers
                 new Device(){ Id= 456 , Name ="Phone"},
                 new Device(){ Id= 789 , Name ="TV"}
             };
-            var user = new User
-            {
-                Devices = devices,
-                UName = "Memory",
-                DeviceGuid = "asda"
-                
-            };
-            return View(user);
+
+            var selectlist = new SelectList(devices,"Id","Name");
+            return View(selectlist);
         }
 
         public IActionResult Privacy()

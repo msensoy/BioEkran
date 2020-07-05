@@ -14,7 +14,7 @@ namespace UygulamaUI.Models
         [Required(ErrorMessage = "Bu alan boş bırakılamaz")]
         public string Password { get; set; }
 
-        [NotMapped] // Does not effect with your database
+        [NotMapped]
         [Compare("Password",ErrorMessage ="Şifreler eşleşmiyor")]
         public string ConfirmPassword { get; set; }
     }

@@ -194,7 +194,6 @@ C:\Users\MONSTER\GitHub\BioEkran\UygulamaUI\UygulamaUI\bin\Debug\netcoreapp3.1\r
 C:\Users\MONSTER\GitHub\BioEkran\UygulamaUI\UygulamaUI\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\MONSTER\GitHub\BioEkran\UygulamaUI\UygulamaUI\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\MONSTER\GitHub\BioEkran\UygulamaUI\UygulamaUI\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\MONSTER\GitHub\BioEkran\UygulamaUI\UygulamaUI\obj\Debug\netcoreapp3.1\UygulamaUI.csprojAssemblyReference.cache
 C:\Users\MONSTER\GitHub\BioEkran\UygulamaUI\UygulamaUI\obj\Debug\netcoreapp3.1\UygulamaUI.csproj.CoreCompileInputs.cache
 C:\Users\MONSTER\GitHub\BioEkran\UygulamaUI\UygulamaUI\obj\Debug\netcoreapp3.1\UygulamaUI.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\MONSTER\GitHub\BioEkran\UygulamaUI\UygulamaUI\obj\Debug\netcoreapp3.1\UygulamaUI.RazorAssemblyInfo.cache

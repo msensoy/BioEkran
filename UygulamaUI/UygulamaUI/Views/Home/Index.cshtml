@@ -1,5 +1,5 @@
 ﻿@using UygulamaUI.Models
-@model User
+@model SelectList
 @{
     ViewData["Title"] = "Anasayfa";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -20,15 +20,7 @@
     <div class="row justify-content-center">
 
         <div class="col-3 border">
-            @Html.DropDownListFor(m => m.UName, new SelectList(Model.Devices, "Id", "Name"), "Cihaz Seçin", new { @class = "form control" })
-            @*<label>Cihazı seçiniz:</label>
-                <ul>
-                    @foreach (var x in Model)
-                    {
-                        <li>@x.DeviceGUID</li>
-                    }
-                </ul>*@
-            @*@Html.LabelFor(x=>x.Devices.Where(t=>t.Id == dropdown seçili))*@
+            @Html.DropDownList("ddlCihazlar", Model, "Cihaz Seçin")
         </div>
 
         <div class="col-6 border ml-5">
