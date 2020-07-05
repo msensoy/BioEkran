@@ -29,16 +29,16 @@ namespace UygulamaUI.Controllers
             {
                 return RedirectToAction("Index", "Login");
             }
-            //var apiService = new ApiServices();
-            //var devices = await apiService.GetDevicesForCurrentUserAsync(accessToken);
-            var devices = new List<Device>()
-            {
-                new Device(){ Id= 123 , Name ="Computer" },
-                new Device(){ Id= 456 , Name ="Phone"},
-                new Device(){ Id= 789 , Name ="TV"}
-            };
+            var apiService = new ApiServices();
+            var devices = await apiService.GetDevicesForCurrentUserAsync(accessToken);
+            //var devices = new List<Device>()
+            //{
+            //    new Device(){ Id= 123 , Name ="Computer" },
+            //    new Device(){ Id= 456 , Name ="Phone"},
+            //    new Device(){ Id= 789 , Name ="TV"}
+            //};
 
-            var selectlist = new SelectList(devices,"Id","Name");
+            var selectlist = new SelectList(devices, "DeviceGUID", "DeviceGUID"); //value , name
             return View(selectlist);
         }
 
