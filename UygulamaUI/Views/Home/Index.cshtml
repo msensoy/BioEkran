@@ -38,7 +38,7 @@
                 <p id="deviceWMode">Grafik yeri</p>
                 <div><canvas id="lineChart"></canvas></div>
 
-                @{ChartJSCore.Models.Chart chart = (ChartJSCore.Models.Chart)ViewData["chart"]; }
+                @{ChartJSCore.Models.Chart chart = (ChartJSCore.Models.Chart)ViewData["Chart"]; }
 
                 @section Scripts {
                     <script src="~/lib/Chart.js"></script>
@@ -76,7 +76,6 @@
                                 console.log(sensorDatalar.data.datasets[0].data);
                                 console.log(sensorDatalar.data.labels);
                             }
-
                         });
                     }
                 });

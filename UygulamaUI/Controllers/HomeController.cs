@@ -42,8 +42,7 @@ namespace UygulamaUI.Controllers
             }
             var selectlist = new SelectList(devices, "Id", "Name");
 
-            var chart = GetChart(new List<double?>() { 30, 20, 10, 40, 50, 20, 70 }, new List<string>() { "January", "February", "March", "April", "May", "June", "July" });
-            ViewData["chart"] = chart;
+            Chart = GetChart(new List<double?>() { 30, 20, 10, 40, 50, 20, 70 }, new List<string>() { "January", "February", "March", "April", "May", "June", "July" });
 
             return View(selectlist);
         }
@@ -103,11 +102,11 @@ namespace UygulamaUI.Controllers
             var sensorDataList = await _apiService.SearchDevicesAsync(deviceId, _accessToken);
             var valueList = sensorDataList.Select(x => x.Value).Skip(6).ToList();
             var stringList = sensorDataList.Select(x => x.Time).Skip(6).ToList();
-            var chart = GetChart(valueList, stringList);
-            ViewData["chart"] = chart;
-            return Json(chart);
+            Chart = GetChart(valueList, stringList);
+            return Json(Chart);
         }
-
+        [ViewData]
+        public Chart Chart { get; set; }
         public IActionResult Privacy()
         {
             return View();
