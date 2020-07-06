@@ -96,21 +96,11 @@ namespace UygulamaUI.Controllers
   
             return Json(device);
         }
-        public async Task<JsonResult> GetDeviceSensorInfo(int deviceId)
-        {
-            _accessToken = HttpContext.Session.GetString("accesstoken");
-            var sensorDataList = await _apiService.SearchDevicesAsync(deviceId, _accessToken);
-            var valueList = sensorDataList.Select(x => x.Value).Skip(6).ToList();
-            var stringList = sensorDataList.Select(x => x.Time).Skip(6).ToList();
-            Chart = GetChart(valueList, stringList);
-            return Json(Chart);
-        }
-
 
         [Route("Home/GetXChart/{deviceId}")]
         public async Task<IActionResult> GetXChart(int deviceId)
         {
-            if(deviceId == 999)
+            if(deviceId == 0)
             {
                 var valueList1 = new List<double?>() { 0, 0, 0, 0, 0 };
                 var stringList1 = new List<string>() { "", "", "", "", "" };

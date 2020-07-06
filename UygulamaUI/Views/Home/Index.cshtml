@@ -36,30 +36,30 @@
 
         <div id="SetGrap" class="col-7 border ml-3">
             @*<p id="deviceWMode">Grafik yeri</p>
-            <div><canvas id="lineChart"></canvas></div>
+                    <div><canvas id="lineChart"></canvas></div>
 
-            @{ChartJSCore.Models.Chart chart = (ChartJSCore.Models.Chart)ViewData["Chart"]; }
+                    @{ChartJSCore.Models.Chart chart = (ChartJSCore.Models.Chart)ViewData["Chart"]; }
 
-            @section Scripts {
-                <script src="~/lib/Chart.js"></script>
-                <script>
-                    @Html.Raw(chart.CreateChartCode("lineChart"));
-                </script>
-            }
-        </div>*@
+                    @section Scripts {
+                        <script src="~/lib/Chart.js"></script>
+                        <script>
+                            @Html.Raw(chart.CreateChartCode("lineChart"));
+                        </script>
+                    }
+                </div>*@
+        </div>
+
     </div>
 
-</div>
-
-<script src="~/lib/jquery/dist/jquery.js"></script>
-<script>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script>
         $(document).ready(function () {
             $("#ddlCihazlar").change(function () {
                 if ($("#ddlCihazlar option:selected").text() == "Cihaz Seçin") {
                     $("#deviceName").html("");
                     $("#deviceId").html("");
                     $("#deviceWMode").html("");
-                    $("#SetGrap").load(`/Home/GetXChart/${999}`);
+                    $("#SetGrap").load(`/Home/GetXChart/${0}`);
                 }
                 $.ajax({
                     url: '/Home/GetDeviceInfo',
@@ -69,22 +69,11 @@
                         $("#deviceId").html(device.id);
                         $("#deviceWMode").html(device.workingMode);
 
-                        $.ajax({
-                            url: '/Home/GetDeviceSensorInfo',
-                            data: { deviceId: device.id },
-                            success: function (sensorDatalar) {
-
-                                var tarihler = sensorDatalar.data.labels;
-                                var veriler = sensorDatalar.data.datasets[0].data;
-                                console.log(veriler);
-                                console.log(tarihler);
-                                $("#SetGrap").load(`/Home/GetXChart/${device.id}`);
-                            }
-                        });
+                        $("#SetGrap").load(`/Home/GetXChart/${device.id}`);
                     }
                 });
-            })
+            });
         });
-</script>
+    </script>
 
 
