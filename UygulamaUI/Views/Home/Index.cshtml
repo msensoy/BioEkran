@@ -35,7 +35,7 @@
         </div>
 
         <div class="col-7 border ml-3">
-            <p>Grafik yeri</p>
+            <p id="deviceWMode">Grafik yeri</p>
         </div>
     </div>
 
@@ -50,11 +50,25 @@
                 $("#deviceId").html("");
                 $("#deviceWMode").html("");
             }
-            $.get("/Home/GetDeviceInfo", { id: $("#ddlCihazlar").val() }, function (data) {
-                $("#deviceName").html(data.name); 
-                $("#deviceId").html(data.id);
-                $("#deviceWMode").html(data.workingMode); 
-            })
+            $.ajax({
+                url: '/Home/GetDeviceInfo',
+                data: { id: $("#ddlCihazlar").val() },
+                success: function (device) {
+                    $("#deviceName").html(device.name);
+                    $("#deviceId").html(device.id);
+                    $("#deviceWMode").html(device.workingMode); 
+
+                    // call next ajax function
+                    $.ajax({
+                        url: '/Home/GetDeviceSensorInfo',
+                        data: { deviceId: device.id },
+                        success: function (sensorDatalar) {
+                            console.log("Hello");
+                        }
+
+                    });
+                }
+            });
         })
     });
 </script>

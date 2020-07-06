@@ -7,6 +7,7 @@ using UygulamaUI.Constant;
 using UygulamaUI.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Linq;
 
 namespace UygulamaUI.Services.Data
 {
@@ -222,7 +223,6 @@ namespace UygulamaUI.Services.Data
                 Constants.BaseApiAddress + "api/SensorData/Search/" + deviceID);
 
             var data = JsonConvert.DeserializeObject<List<SensorData>>(json);
-
             return data;
         }
 
