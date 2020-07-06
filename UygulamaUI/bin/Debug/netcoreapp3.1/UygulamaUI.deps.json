@@ -24,6 +24,7 @@
     ".NETCoreApp,Version=v3.1": {
       "UygulamaUI/1.0.0": {
         "dependencies": {
+          "ChartJSCore": "1.5.8",
           "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": "3.1.5",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "3.1.3",
           "Microsoft.AspNetCore.Antiforgery": "3.1.0.0",
@@ -313,6 +314,20 @@
         },
         "compile": {
           "UygulamaUI.dll": {}
+        }
+      },
+      "ChartJSCore/1.5.8": {
+        "dependencies": {
+          "Newtonsoft.Json": "11.0.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/ChartJSCore.dll": {
+            "assemblyVersion": "1.5.5.0",
+            "fileVersion": "1.5.8.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/ChartJSCore.dll": {}
         }
       },
       "Microsoft.AspNetCore.Html.Abstractions/2.2.0": {
@@ -3284,6 +3299,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "ChartJSCore/1.5.8": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-vrweAXhNPoJp0FZJQfNoKqyN298/O0V+knFwkMp1Jjl+NSv8I7mKXoAvAQFoJT+gs0ouH8Mh5eCZNYWjZZILwA==",
+      "path": "chartjscore/1.5.8",
+      "hashPath": "chartjscore.1.5.8.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Html.Abstractions/2.2.0": {
       "type": "package",

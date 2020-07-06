@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "sxmo2dAENUDLm12C2nMqhvVqMEGg7qQZnhcSfAJMGpObTaUTgOPc6FAD99N38aF27C1CWXAG3godDRtsPOiRKg==",
+  "dgSpecHash": "ej450pE5jYIU3dR80Ghdfo4bN+UdDUr1GysfDEbgs+CDTxno0mzn7XgE7wrAP05QMc8pXbKOs2XStg5VLTJZPw==",
   "success": true,
   "projectFilePath": "C:\\Users\\MONSTER\\GitHub\\BioEkran\\UygulamaUI\\UygulamaUI.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\MONSTER\\.nuget\\packages\\chartjscore\\1.5.8\\chartjscore.1.5.8.nupkg.sha512",
     "C:\\Users\\MONSTER\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\MONSTER\\.nuget\\packages\\microsoft.aspnetcore.mvc.razor.extensions\\3.1.5\\microsoft.aspnetcore.mvc.razor.extensions.3.1.5.nupkg.sha512",
     "C:\\Users\\MONSTER\\.nuget\\packages\\microsoft.aspnetcore.mvc.razor.runtimecompilation\\3.1.5\\microsoft.aspnetcore.mvc.razor.runtimecompilation.3.1.5.nupkg.sha512",
