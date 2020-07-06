@@ -52,7 +52,7 @@ namespace UygulamaUI.Controllers
         {
             _accessToken = HttpContext.Session.GetString("accesstoken");
             var sensorDataList = await _apiService.SearchDevicesAsync(deviceId, _accessToken);
-            return Json(sensorDataList);
+            return Json(sensorDataList.Skip(7));
         }
 
         public IActionResult Privacy()
