@@ -42,13 +42,13 @@ namespace UygulamaUI.Controllers
             }
             var selectlist = new SelectList(devices, "Id", "Name");
 
-            var chart = GetChart();
+            var chart = GetChart(new List<double?>() { 30, 20, 10, 40, 50, 20, 70 });
             ViewData["chart"] = chart;
 
             return View(selectlist);
         }
 
-        public Chart GetChart()
+        public Chart GetChart(List<double?> list)
         {
             Chart chart = new Chart();
 
@@ -60,7 +60,7 @@ namespace UygulamaUI.Controllers
             LineDataset dataset = new LineDataset()
             {
                 Label = "Sensör Verileri",
-                Data = new List<double?> { 65, 59, 80, 81, 56, 55, 40 },
+                Data = list,
                 Fill = "false",
                 LineTension = 0.1,
                 BackgroundColor = ChartColor.FromRgba(75, 192, 192, 0.4),
@@ -94,6 +94,8 @@ namespace UygulamaUI.Controllers
             _accessToken = HttpContext.Session.GetString("accesstoken");
             var devices = await _apiService.GetDevicesForCurrentUserAsync(_accessToken);
             var device = devices.Where(x => x.Id == id).FirstOrDefault();
+            var chart = GetChart(new List<double?>() { 10, 20, 30, 40, 50, 60, 70 });
+            ViewData["chart"] = chart;
             return Json(device);
         }
         public async Task<JsonResult> GetDeviceSensorInfo(int deviceId)
