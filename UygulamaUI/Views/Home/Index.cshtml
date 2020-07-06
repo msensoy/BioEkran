@@ -22,11 +22,19 @@
             </div>
             <div class="form-inline justify-content-between m-1">
                 <label>CihazID:</label>
-                <label>Seçilen Cihazın ID Numarası</label>
+                <label id="deviceId"></label>
             </div>
             <div class="form-inline justify-content-between m-1">
                 <label>CihazName:</label>
-                <label id="deviceName2" name="deviceName2">Seçilen Cihazın Adı</label>
+                <label id="deviceName">Cihazın Adı</label>
+            </div>
+            <div class="form-inline justify-content-between m-1">
+                <label>Working Mode:</label>
+                <label id="deviceWMode"></label>
+            </div>
+            <div class="form-inline justify-content-between m-1">
+                <label>CihazID:</label>
+                <label id="deviceGuid"></label>
             </div>
 
         </div>
@@ -42,8 +50,16 @@
 <script>
     $(document).ready(function () {
         $("#ddlCihazlar").change(function () {
-            $.get("/Home/DeviceName", { DeviceGUID: $("#ddlCihazlar").val() }, function (data) {
-                $("#deviceName2").html(data);
+            console.log($("#ddlCihazlar option:selected").text());
+            if ($("#ddlCihazlar").text == "Cihaz Seçin") {
+
+            }
+            $.getJSON("/Home/DeviceName", { DeviceGUID: $("#ddlCihazlar").val() }, function (data) {
+                console.log(data);
+                $("#deviceName").html(data.name); 
+                $("#deviceId").html(data.id);
+                $("#deviceWMode").html(data.workingMode); 
+                $("#deviceGuid").html(data.deviceGUID); 
             })
         })
     });
