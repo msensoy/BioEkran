@@ -41,13 +41,20 @@ namespace UygulamaUI.Controllers
         }
 
 
-        public async Task<JsonResult> DeviceName(int id)
+        public async Task<JsonResult> GetDeviceInfo(int id)
         {
             _accessToken = HttpContext.Session.GetString("accesstoken");
             var devices = await _apiService.GetDevicesForCurrentUserAsync(_accessToken);
             var device = devices.Where(x => x.Id == id).FirstOrDefault();
             return Json(device);
         }
+        //public async Task<JsonResult> GetDeviceSensorInfo(int deviceId)
+        //{
+        //    _accessToken = HttpContext.Session.GetString("accesstoken");
+        //    var sensorDataList = await _apiService.SearchDevicesAsync(deviceId, _accessToken);
+        //    var SensorData = sensorDataList.Where(x => x.DeviceId == deviceId).FirstOrDefault();
+        //    return Json(SensorData);
+        //}
 
         public IActionResult Privacy()
         {
