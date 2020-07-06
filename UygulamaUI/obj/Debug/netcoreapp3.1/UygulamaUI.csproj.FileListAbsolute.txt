@@ -620,3 +620,4 @@ C:\Users\MONSTER\GitHub\BioEkran\UygulamaUI\obj\Debug\netcoreapp3.1\UygulamaUI.c
 C:\Users\MONSTER\GitHub\BioEkran\UygulamaUI\obj\Debug\netcoreapp3.1\UygulamaUI.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\MONSTER\GitHub\BioEkran\UygulamaUI\obj\Debug\netcoreapp3.1\UygulamaUI.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\MONSTER\GitHub\BioEkran\UygulamaUI\bin\Debug\netcoreapp3.1\ChartJSCore.dll
+C:\Users\MONSTER\GitHub\BioEkran\UygulamaUI\obj\Debug\netcoreapp3.1\Razor\Views\Home\GetXChart.cshtml.g.cs

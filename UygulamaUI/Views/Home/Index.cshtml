@@ -1,64 +1,65 @@
 ﻿@using UygulamaUI.Models
-    @model SelectList
-    @{
-        ViewData["Title"] = "Anasayfa";
-        Layout = "~/Views/Shared/_Layout.cshtml";
-    }
+@model SelectList
+@{
+    ViewData["Title"] = "Anasayfa";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 
-    <div class="container">
+<div class="container">
 
 
-        <div class="row justify-content-end m-3">
-            <a class="btn btn-info mr-3" href="/Login/Index">Düzenle</a>
-            <a class="btn btn-danger" href="/Login/Index">Çıkış Yap</a>
-        </div>
-
-        <div class="row justify-content-center">
-
-            <div class="col-4 border">
-                <div class="form-inline justify-content-between m-1">
-                    <label>Cihaz:</label>
-                    @Html.DropDownList("ddlCihazlar", Model, "Cihaz Seçin", new { @class = "form-control" })
-                </div>
-                <div class="form-inline justify-content-between m-1">
-                    <label>CihazID:</label>
-                    <label id="deviceId" class = "form-control"></label>
-                </div>
-                <div class="form-inline justify-content-between m-1">
-                    <label>CihazName:</label>
-                    <label id="deviceName" class = "form-control"></label>
-                </div>
-                <div class="form-inline justify-content-between m-1">
-                    <label>Working Mode:</label>
-                    <label id="deviceWMode" class = "form-control"></label>
-                </div>
-            </div>
-
-            <div class="col-7 border ml-3">
-                <p id="deviceWMode">Grafik yeri</p>
-                <div><canvas id="lineChart"></canvas></div>
-
-                @{ChartJSCore.Models.Chart chart = (ChartJSCore.Models.Chart)ViewData["Chart"]; }
-
-                @section Scripts {
-                    <script src="~/lib/Chart.js"></script>
-                    <script>
-                    @Html.Raw(chart.CreateChartCode("lineChart"));
-                    </script>
-                }
-            </div>
-        </div>
-
+    <div class="row justify-content-end m-3">
+        <a class="btn btn-info mr-3" href="/Login/Index">Düzenle</a>
+        <a class="btn btn-danger" href="/Login/Index">Çıkış Yap</a>
     </div>
 
-    <script src="~/lib/jquery/dist/jquery.js"></script>
-    <script>
+    <div class="row justify-content-center">
+
+        <div class="col-4 border">
+            <div class="form-inline justify-content-between m-1">
+                <label>Cihaz:</label>
+                @Html.DropDownList("ddlCihazlar", Model, "Cihaz Seçin", new { @class = "form-control" })
+            </div>
+            <div class="form-inline justify-content-between m-1">
+                <label>CihazID:</label>
+                <label id="deviceId" class="form-control"></label>
+            </div>
+            <div class="form-inline justify-content-between m-1">
+                <label>CihazName:</label>
+                <label id="deviceName" class="form-control"></label>
+            </div>
+            <div class="form-inline justify-content-between m-1">
+                <label>Working Mode:</label>
+                <label id="deviceWMode" class="form-control"></label>
+            </div>
+        </div>
+
+        <div id="SetGrap" class="col-7 border ml-3">
+            @*<p id="deviceWMode">Grafik yeri</p>
+            <div><canvas id="lineChart"></canvas></div>
+
+            @{ChartJSCore.Models.Chart chart = (ChartJSCore.Models.Chart)ViewData["Chart"]; }
+
+            @section Scripts {
+                <script src="~/lib/Chart.js"></script>
+                <script>
+                    @Html.Raw(chart.CreateChartCode("lineChart"));
+                </script>
+            }
+        </div>*@
+    </div>
+
+</div>
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script>
         $(document).ready(function () {
             $("#ddlCihazlar").change(function () {
                 if ($("#ddlCihazlar option:selected").text() == "Cihaz Seçin") {
                     $("#deviceName").html("");
                     $("#deviceId").html("");
                     $("#deviceWMode").html("");
+                    $("#SetGrap").load(`/Home/GetXChart/${999}`);
                 }
                 $.ajax({
                     url: '/Home/GetDeviceInfo',
@@ -72,15 +73,18 @@
                             url: '/Home/GetDeviceSensorInfo',
                             data: { deviceId: device.id },
                             success: function (sensorDatalar) {
-                                console.log(sensorDatalar);
-                                console.log(sensorDatalar.data.datasets[0].data);
-                                console.log(sensorDatalar.data.labels);
+
+                                var tarihler = sensorDatalar.data.labels;
+                                var veriler = sensorDatalar.data.datasets[0].data;
+                                console.log(veriler);
+                                console.log(tarihler);
+                                $("#SetGrap").load(`/Home/GetXChart/${device.id}`);
                             }
                         });
                     }
                 });
             })
         });
-    </script>
+</script>
 
 

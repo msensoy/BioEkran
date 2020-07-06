@@ -23,6 +23,7 @@ namespace UygulamaUI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddRouting();
             services.AddMvc();
             services.AddDistributedMemoryCache();
             services.AddSession();
