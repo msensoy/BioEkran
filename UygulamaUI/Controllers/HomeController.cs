@@ -36,7 +36,7 @@ namespace UygulamaUI.Controllers
             {
                 devices = new List<Device>();
             }
-            var selectlist = new SelectList(devices, "DeviceGUID", "Name"); 
+            var selectlist = new SelectList(devices, "Id", "Name"); 
             return View(selectlist);
         }
 

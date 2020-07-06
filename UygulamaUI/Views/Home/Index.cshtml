@@ -45,14 +45,12 @@
 <script>
     $(document).ready(function () {
         $("#ddlCihazlar").change(function () {
-            console.log($("#ddlCihazlar option:selected").text());
             if ($("#ddlCihazlar option:selected").text() == "Cihaz Seçin") {
                 $("#deviceName").html("");
                 $("#deviceId").html("");
                 $("#deviceWMode").html("");
             }
-            $.getJSON("/Home/DeviceName", { DeviceGUID: $("#ddlCihazlar").val() }, function (data) {
-                console.log(data);
+            $.getJSON("/Home/DeviceName", { id: $("#ddlCihazlar").val() }, function (data) {
                 $("#deviceName").html(data.name); 
                 $("#deviceId").html(data.id);
                 $("#deviceWMode").html(data.workingMode); 
