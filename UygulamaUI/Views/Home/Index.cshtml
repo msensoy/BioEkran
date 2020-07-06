@@ -58,12 +58,11 @@
                     $("#deviceId").html(device.id);
                     $("#deviceWMode").html(device.workingMode); 
 
-                    // call next ajax function
                     $.ajax({
                         url: '/Home/GetDeviceSensorInfo',
                         data: { deviceId: device.id },
                         success: function (sensorDatalar) {
-                            console.log("Hello");
+                            console.log(sensorDatalar)
                         }
 
                     });
