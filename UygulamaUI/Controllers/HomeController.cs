@@ -41,11 +41,11 @@ namespace UygulamaUI.Controllers
         }
 
 
-        public async Task<JsonResult> DeviceName(string DeviceGUID)
+        public async Task<JsonResult> DeviceName(int id)
         {
             _accessToken = HttpContext.Session.GetString("accesstoken");
             var devices = await _apiService.GetDevicesForCurrentUserAsync(_accessToken);
-            var device = devices.Where(x => x.DeviceGUID == DeviceGUID).FirstOrDefault();
+            var device = devices.Where(x => x.Id == id).FirstOrDefault();
             return Json(device);
         }
 
