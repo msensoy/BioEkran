@@ -45,9 +45,8 @@ namespace UygulamaUI.Controllers
         {
             _accessToken = HttpContext.Session.GetString("accesstoken");
             var devices = await _apiService.GetDevicesForCurrentUserAsync(_accessToken);
-            var deviceName = devices.Where(x => x.DeviceGUID == DeviceGUID).FirstOrDefault();
-            var jsonResult = Json(deviceName);
-            return jsonResult;
+            var device = devices.Where(x => x.DeviceGUID == DeviceGUID).FirstOrDefault();
+            return Json(device);
         }
 
         public IActionResult Privacy()

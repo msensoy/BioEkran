@@ -211,5 +211,20 @@ namespace UygulamaUI.Services.Data
 
             return model;
         }
+
+        public async Task<List<SensorData>> SearchDevicesAsync(int deviceID, string accessToken)
+        {
+            var client = new HttpClient();
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
+                "Bearer", accessToken);
+
+            var json = await client.GetStringAsync(
+                Constants.BaseApiAddress + "api/SensorData/Search/" + deviceID);
+
+            var data = JsonConvert.DeserializeObject<List<SensorData>>(json);
+
+            return data;
+        }
+
     }
 }
