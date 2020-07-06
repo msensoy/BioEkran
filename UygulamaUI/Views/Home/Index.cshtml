@@ -50,7 +50,7 @@
                 $("#deviceId").html("");
                 $("#deviceWMode").html("");
             }
-            $.getJSON("/Home/DeviceName", { id: $("#ddlCihazlar").val() }, function (data) {
+            $.get("/Home/DeviceName", { id: $("#ddlCihazlar").val() }, function (data) {
                 $("#deviceName").html(data.name); 
                 $("#deviceId").html(data.id);
                 $("#deviceWMode").html(data.workingMode); 
