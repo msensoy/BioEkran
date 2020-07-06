@@ -42,25 +42,25 @@ namespace UygulamaUI.Controllers
             }
             var selectlist = new SelectList(devices, "Id", "Name");
 
-            var chart = GetChart(new List<double?>() { 30, 20, 10, 40, 50, 20, 70 });
+            var chart = GetChart(new List<double?>() { 30, 20, 10, 40, 50, 20, 70 }, new List<string>() { "January", "February", "March", "April", "May", "June", "July" });
             ViewData["chart"] = chart;
 
             return View(selectlist);
         }
 
-        public Chart GetChart(List<double?> list)
+        public Chart GetChart(List<double?> valueList, List<string> stringList)
         {
             Chart chart = new Chart();
 
             chart.Type = Enums.ChartType.Line;
 
             ChartJSCore.Models.Data data = new ChartJSCore.Models.Data();
-            data.Labels = new List<string>() { "January", "February", "March", "April", "May", "June", "July" };
+            data.Labels = stringList;
 
             LineDataset dataset = new LineDataset()
             {
                 Label = "Sensör Verileri",
-                Data = list,
+                Data = valueList,
                 Fill = "false",
                 LineTension = 0.1,
                 BackgroundColor = ChartColor.FromRgba(75, 192, 192, 0.4),
@@ -94,15 +94,18 @@ namespace UygulamaUI.Controllers
             _accessToken = HttpContext.Session.GetString("accesstoken");
             var devices = await _apiService.GetDevicesForCurrentUserAsync(_accessToken);
             var device = devices.Where(x => x.Id == id).FirstOrDefault();
-            var chart = GetChart(new List<double?>() { 10, 20, 30, 40, 50, 60, 70 });
-            ViewData["chart"] = chart;
+  
             return Json(device);
         }
         public async Task<JsonResult> GetDeviceSensorInfo(int deviceId)
         {
             _accessToken = HttpContext.Session.GetString("accesstoken");
             var sensorDataList = await _apiService.SearchDevicesAsync(deviceId, _accessToken);
-            return Json(sensorDataList.Skip(7));
+            var valueList = sensorDataList.Select(x => x.Value).Skip(6).ToList();
+            var stringList = sensorDataList.Select(x => x.Time).Skip(6).ToList();
+            var chart = GetChart(valueList, stringList);
+            ViewData["chart"] = chart;
+            return Json(chart);
         }
 
         public IActionResult Privacy()

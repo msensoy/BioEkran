@@ -72,7 +72,9 @@
                             url: '/Home/GetDeviceSensorInfo',
                             data: { deviceId: device.id },
                             success: function (sensorDatalar) {
-                                console.log(sensorDatalar)
+                                console.log(sensorDatalar);
+                                console.log(sensorDatalar.data.datasets[0].data);
+                                console.log(sensorDatalar.data.labels);
                             }
 
                         });

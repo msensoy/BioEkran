@@ -10,7 +10,7 @@ namespace UygulamaUI.Models
         public int Id { get; set; }
         public int TypeId { get; set; }
         public int DeviceId { get; set; }
-        public double Value { get; set; }
+        public double? Value { get; set; }
         public string Time { get; set; }
     }
 }
