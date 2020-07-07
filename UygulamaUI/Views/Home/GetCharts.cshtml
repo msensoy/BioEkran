@@ -4,7 +4,7 @@
         for (int i = 0; i < charts.Count; i++)
         {
             <div class="m-5">
-                <canvas id="@("tr"+i)">
+                <canvas id="@("chart"+i)">
                 </canvas>
             </div>
 
@@ -18,7 +18,7 @@
             @{
                 for (int i = 0; i < charts.Count; i++)
                 {
-                    @Html.Raw(charts[i].CreateChartCode(("tr" + i)));
+                    @Html.Raw(charts[i].CreateChartCode(("chart" + i)));
                 }
 
             }
