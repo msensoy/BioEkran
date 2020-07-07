@@ -43,7 +43,7 @@ namespace UygulamaUI.Controllers
             return View(selectlist);
         }
 
-        public Chart GetChart(List<double?> valueList, List<string> stringList, string title)
+        public Chart GetChart(List<double?> valueList, List<string> stringList, string title, ChartColor color)
         {
             Chart chart = new Chart();
 
@@ -58,18 +58,18 @@ namespace UygulamaUI.Controllers
                 Data = valueList,
                 Fill = "false",
                 LineTension = 0.1,
-                BackgroundColor = ChartColor.FromRgba(75, 192, 192, 0.4),
-                BorderColor = ChartColor.FromRgb(75, 192, 192),
+                BackgroundColor = color,
+                BorderColor = color,
                 BorderCapStyle = "butt",
                 BorderDash = new List<int> { },
                 BorderDashOffset = 0.0,
                 BorderJoinStyle = "miter",
-                PointBorderColor = new List<ChartColor> { ChartColor.FromRgb(75, 192, 192) },
+                PointBorderColor = new List<ChartColor> { color },
                 PointBackgroundColor = new List<ChartColor> { ChartColor.FromHexString("#ffffff") },
                 PointBorderWidth = new List<int> { 1 },
                 PointHoverRadius = new List<int> { 5 },
-                PointHoverBackgroundColor = new List<ChartColor> { ChartColor.FromRgb(75, 192, 192) },
-                PointHoverBorderColor = new List<ChartColor> { ChartColor.FromRgb(220, 220, 220) },
+                PointHoverBackgroundColor = new List<ChartColor> { color },
+                PointHoverBorderColor = new List<ChartColor> { color },
                 PointHoverBorderWidth = new List<int> { 2 },
                 PointRadius = new List<int> { 1 },
                 PointHitRadius = new List<int> { 10 },
@@ -96,19 +96,50 @@ namespace UygulamaUI.Controllers
         [Route("Home/GetCharts/{deviceId}")]
         public async Task<IActionResult> GetCharts(int deviceId)
         {
-            Charts = new List<Chart>();
+
             if (deviceId == 0)
             {
                 var valueList0 = new List<double?>() { 0, 0, 0, 0, 0 };
                 var stringList0 = new List<string>() { "", "", "", "", "" };
-                Charts = new List<Chart>() { GetChart(valueList0,stringList0,"Sensör Verileri") };
+                Charts = new List<Chart>() { GetChart(valueList0, stringList0, "Sensör Verileri", new ChartColor() { Red = 72, Green = 192, Blue = 192, Alpha = 0.4 }) };
                 return View();
             }
-
+            Charts = new List<Chart>();
             _accessToken = HttpContext.Session.GetString("accesstoken");
             var sensorDataList = await _apiService.SearchDevicesAsync(deviceId, _accessToken);
             var sensorTypeList = await _apiService.GetSensorTypesAsync(_accessToken);
-
+            var colorListForCharts = new List<ChartColor>()
+            {
+                new ChartColor()
+                {
+                    Alpha = 0.4,
+                    Red = 72,
+                    Green = 192,
+                    Blue =192
+                },
+                new ChartColor()
+                {
+                    Alpha = 0.4,
+                    Red = 222,
+                    Green = 22,
+                    Blue =22
+                }
+                ,
+                new ChartColor()
+                {
+                    Alpha = 0.4,
+                    Red = 22,
+                    Green = 222,
+                    Blue =22
+                },
+                new ChartColor()
+                {
+                    Alpha = 0.4,
+                    Red = 22,
+                    Green = 22,
+                    Blue =222
+                }
+            };
             for (int i = 0; i < sensorTypeList.Count; i++)
             {
                 var sensorName = sensorTypeList[i].Name;
@@ -117,7 +148,10 @@ namespace UygulamaUI.Controllers
                 var groupDataList = dataList.Skip(6).Select(x => new { sValue = x.Value, sTime = DateTime.Parse(x.Time) }).GroupBy(x => x.sTime.Day).ToList();
                 var valueList = groupDataList.Select(x => x.Average(z => z.sValue)).ToList();
                 var stringList = (groupDataList.Select(x => (x.First().sTime.Date.Date).ToString("dd MMMM yyyy"))).ToList();
-                var Chart = GetChart(valueList, stringList, sensorName);
+                var colorIndex = i % (colorListForCharts.Count());
+
+                var color = colorListForCharts[colorIndex];
+                var Chart = GetChart(valueList, stringList, sensorName, color);
                 Charts.Add(Chart);
             }
 

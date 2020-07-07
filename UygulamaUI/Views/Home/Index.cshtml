@@ -34,7 +34,7 @@
             </div>
         </div>
 
-        <div id="SetGrap" class="col-7 border ml-3">
+        <div id="divCharts" class="col-7 border ml-3">
             @* graphics will come here *@
         </div>
 
@@ -48,7 +48,7 @@
                     $("#deviceName").html("");
                     $("#deviceId").html("");
                     $("#deviceWMode").html("");
-                    $("#SetGrap").load(`/Home/GetXChart/${0}`);
+                    $("#divCharts").load(`/Home/GetCharts/${0}`);
                 }
                 $.ajax({
                     url: '/Home/GetDeviceInfo',
@@ -58,7 +58,7 @@
                         $("#deviceId").html(device.id);
                         $("#deviceWMode").html(device.workingMode);
 
-                        $("#SetGrap").load(`/Home/GetCharts/${device.id}`);
+                        $("#divCharts").load(`/Home/GetCharts/${device.id}`);
                     }
                 });
             });
