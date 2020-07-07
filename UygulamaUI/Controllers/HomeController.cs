@@ -28,26 +28,22 @@ namespace UygulamaUI.Controllers
         public async Task<IActionResult> Index()
         {
 
-          
             _accessToken = HttpContext.Session.GetString("accesstoken");
             if (string.IsNullOrEmpty(_accessToken))
             {
                 return RedirectToAction("Index", "Login");
             }
             var devices = await _apiService.GetDevicesForCurrentUserAsync(_accessToken);
-            
+
             if (devices == null)
             {
                 devices = new List<Device>();
             }
             var selectlist = new SelectList(devices, "Id", "Name");
-
-            Chart = GetChart(new List<double?>() { 30, 20, 10, 40, 50, 20, 70 }, new List<string>() { "January", "February", "March", "April", "May", "June", "July" });
-
             return View(selectlist);
         }
 
-        public Chart GetChart(List<double?> valueList, List<string> stringList)
+        public Chart GetChart(List<double?> valueList, List<string> stringList, string title)
         {
             Chart chart = new Chart();
 
@@ -58,7 +54,7 @@ namespace UygulamaUI.Controllers
 
             LineDataset dataset = new LineDataset()
             {
-                Label = "Sensör Verileri",
+                Label = title,
                 Data = valueList,
                 Fill = "false",
                 LineTension = 0.1,
@@ -93,31 +89,43 @@ namespace UygulamaUI.Controllers
             _accessToken = HttpContext.Session.GetString("accesstoken");
             var devices = await _apiService.GetDevicesForCurrentUserAsync(_accessToken);
             var device = devices.Where(x => x.Id == id).FirstOrDefault();
-  
+
             return Json(device);
         }
 
-        [Route("Home/GetXChart/{deviceId}")]
-        public async Task<IActionResult> GetXChart(int deviceId)
+        [Route("Home/GetCharts/{deviceId}")]
+        public async Task<IActionResult> GetCharts(int deviceId)
         {
-            if(deviceId == 0)
+            Charts = new List<Chart>();
+            if (deviceId == 0)
             {
-                var valueList1 = new List<double?>() { 0, 0, 0, 0, 0 };
-                var stringList1 = new List<string>() { "", "", "", "", "" };
-                Chart = GetChart(valueList1, stringList1);
+                var valueList0 = new List<double?>() { 0, 0, 0, 0, 0 };
+                var stringList0 = new List<string>() { "", "", "", "", "" };
+                Charts = new List<Chart>() { GetChart(valueList0,stringList0,"Sensör Verileri") };
                 return View();
             }
+
             _accessToken = HttpContext.Session.GetString("accesstoken");
             var sensorDataList = await _apiService.SearchDevicesAsync(deviceId, _accessToken);
-            var valueList = sensorDataList.Select(x => x.Value).Skip(6).ToList();
-            var stringList = sensorDataList.Select(x => x.Time).Skip(6).ToList();
-            Chart = GetChart(valueList, stringList);
+            var sensorTypeList = await _apiService.GetSensorTypesAsync(_accessToken);
+
+            for (int i = 0; i < sensorTypeList.Count; i++)
+            {
+                var sensorName = sensorTypeList[i].Name;
+                var dataList = sensorDataList.Where(x => x.TypeId == sensorTypeList[i].Id);
+
+                var groupDataList = dataList.Skip(6).Select(x => new { sValue = x.Value, sTime = DateTime.Parse(x.Time) }).GroupBy(x => x.sTime.Day).ToList();
+                var valueList = groupDataList.Select(x => x.Average(z => z.sValue)).ToList();
+                var stringList = (groupDataList.Select(x => (x.First().sTime.Date.Date).ToString("dd MMMM yyyy"))).ToList();
+                var Chart = GetChart(valueList, stringList, sensorName);
+                Charts.Add(Chart);
+            }
+
             return View();
         }
 
-
         [ViewData]
-        public Chart Chart { get; set; }
+        public List<Chart> Charts { get; set; }
         public IActionResult Privacy()
         {
             return View();

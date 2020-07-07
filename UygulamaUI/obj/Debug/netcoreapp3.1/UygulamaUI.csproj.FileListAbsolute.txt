@@ -1002,7 +1002,6 @@ C:\Users\MelinaAero\Documents\Github\BioEkran\UygulamaUI\obj\Debug\netcoreapp3.1
 C:\Users\MelinaAero\Documents\Github\BioEkran\UygulamaUI\obj\Debug\netcoreapp3.1\UygulamaUI.TagHelpers.input.cache
 C:\Users\MelinaAero\Documents\Github\BioEkran\UygulamaUI\obj\Debug\netcoreapp3.1\UygulamaUI.TagHelpers.output.cache
 C:\Users\MelinaAero\Documents\Github\BioEkran\UygulamaUI\obj\Debug\netcoreapp3.1\UygulamaUI.RazorCoreGenerate.cache
-C:\Users\MelinaAero\Documents\Github\BioEkran\UygulamaUI\obj\Debug\netcoreapp3.1\Razor\Views\Home\GetXChart.cshtml.g.cs
 C:\Users\MelinaAero\Documents\Github\BioEkran\UygulamaUI\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
 C:\Users\MelinaAero\Documents\Github\BioEkran\UygulamaUI\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Users\MelinaAero\Documents\Github\BioEkran\UygulamaUI\obj\Debug\netcoreapp3.1\Razor\Views\Login\Index.cshtml.g.cs
@@ -1021,3 +1020,4 @@ C:\Users\MelinaAero\Documents\Github\BioEkran\UygulamaUI\obj\Debug\netcoreapp3.1
 C:\Users\MelinaAero\Documents\Github\BioEkran\UygulamaUI\obj\Debug\netcoreapp3.1\UygulamaUI.dll
 C:\Users\MelinaAero\Documents\Github\BioEkran\UygulamaUI\obj\Debug\netcoreapp3.1\UygulamaUI.pdb
 C:\Users\MelinaAero\Documents\Github\BioEkran\UygulamaUI\obj\Debug\netcoreapp3.1\UygulamaUI.genruntimeconfig.cache
+C:\Users\MelinaAero\Documents\Github\BioEkran\UygulamaUI\obj\Debug\netcoreapp3.1\Razor\Views\Home\GetCharts.cshtml.g.cs

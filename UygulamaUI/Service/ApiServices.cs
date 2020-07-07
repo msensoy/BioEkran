@@ -150,6 +150,20 @@ namespace UygulamaUI.Services.Data
             return devices;
         }
 
+        public async Task<List<SensorType>> GetSensorTypesAsync(string accessToken)
+        {
+            var client = new HttpClient();
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
+                "Bearer", accessToken);
+
+            var json = await client.GetStringAsync(
+                Constants.BaseApiAddress + "api/SensorType");
+
+            var sensorTypes = JsonConvert.DeserializeObject<List<SensorType>>(json);
+
+            return sensorTypes;
+        }
+
         public async Task<bool> AddUserToDeviceAsync(int deviceId, string email, string accessToken)
         {
             var client = new HttpClient();
