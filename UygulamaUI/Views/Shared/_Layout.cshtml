@@ -3,27 +3,16 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Uygulama</title>
+    <title>@ViewData["Title"] Uygulama</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
-    <navbar>
-        <div class="nav">
-            <img src="~/img/component (1).png" class="resim1" />
-            <div class="menu">
-                <a href="/Anasayfa/Index" class="anasayfa"> ANASAYFA</a>
-                <a href="/Home/Index" class="izlemeagi"> İZLEME AĞI</a>
-            </div>
-            <img src="~/img/component (2).png" class="resim2" />
-        </div>
-    </navbar>
-    <div style="height:10px;"></div>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+    <div>
+    @RenderBody()
     </div>
+   
+
 
     <footer class="footer text-muted">
         <div class="container">

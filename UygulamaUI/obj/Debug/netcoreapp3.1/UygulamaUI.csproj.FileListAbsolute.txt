@@ -314,7 +314,6 @@ C:\Users\MONSTER\GitHub\BioEkran\UygulamaUI\obj\Debug\netcoreapp3.1\UygulamaUI.T
 C:\Users\MONSTER\GitHub\BioEkran\UygulamaUI\obj\Debug\netcoreapp3.1\UygulamaUI.TagHelpers.output.cache
 C:\Users\MONSTER\GitHub\BioEkran\UygulamaUI\obj\Debug\netcoreapp3.1\UygulamaUI.RazorCoreGenerate.cache
 C:\Users\MONSTER\GitHub\BioEkran\UygulamaUI\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
-C:\Users\MONSTER\GitHub\BioEkran\UygulamaUI\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Users\MONSTER\GitHub\BioEkran\UygulamaUI\obj\Debug\netcoreapp3.1\Razor\Views\Login\Index.cshtml.g.cs
 C:\Users\MONSTER\GitHub\BioEkran\UygulamaUI\obj\Debug\netcoreapp3.1\Razor\Views\Registration\Index.cshtml.g.cs
 C:\Users\MONSTER\GitHub\BioEkran\UygulamaUI\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
@@ -620,7 +619,6 @@ C:\Users\MONSTER\GitHub\BioEkran\UygulamaUI\obj\Debug\netcoreapp3.1\UygulamaUI.c
 C:\Users\MONSTER\GitHub\BioEkran\UygulamaUI\obj\Debug\netcoreapp3.1\UygulamaUI.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\MONSTER\GitHub\BioEkran\UygulamaUI\obj\Debug\netcoreapp3.1\UygulamaUI.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\MONSTER\GitHub\BioEkran\UygulamaUI\bin\Debug\netcoreapp3.1\ChartJSCore.dll
-C:\Users\MONSTER\GitHub\BioEkran\UygulamaUI\obj\Debug\netcoreapp3.1\Razor\Views\Home\GetXChart.cshtml.g.cs
 C:\Users\MelinaAero\Documents\Github\BioEkran\UygulamaUI\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\MelinaAero\Documents\Github\BioEkran\UygulamaUI\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Users\MelinaAero\Documents\Github\BioEkran\UygulamaUI\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
@@ -1420,3 +1418,5 @@ C:\Users\admin\Documents\GitHub\BioEkran\UygulamaUI\obj\Debug\netcoreapp3.1\Uygu
 C:\Users\admin\Documents\GitHub\BioEkran\UygulamaUI\obj\Debug\netcoreapp3.1\UygulamaUI.dll
 C:\Users\admin\Documents\GitHub\BioEkran\UygulamaUI\obj\Debug\netcoreapp3.1\UygulamaUI.pdb
 C:\Users\admin\Documents\GitHub\BioEkran\UygulamaUI\obj\Debug\netcoreapp3.1\Razor\Views\Anasayfa\Index.cshtml.g.cs
+C:\Users\MONSTER\GitHub\BioEkran\UygulamaUI\obj\Debug\netcoreapp3.1\Razor\Views\Anasayfa\Index.cshtml.g.cs
+C:\Users\MONSTER\GitHub\BioEkran\UygulamaUI\obj\Debug\netcoreapp3.1\Razor\Views\Home\GetCharts.cshtml.g.cs
