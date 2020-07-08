@@ -1,0 +1,59 @@
+﻿body {
+    background-image: url('../img/component.png');
+    padding: 0px;
+    margin: 0px;
+}
+
+.nav {
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    opacity: 0.6;
+    height: 141px;
+    width: 100%;
+}
+
+.resim1 {
+    margin-top: 31px;
+    margin-left: 140px;
+    width: 300px;
+    height: 80px;
+}
+
+.resim2 {
+    margin-top: -80px;
+    margin-left: 75%;
+    width: 175px;
+    height: 126px;
+}
+
+.menu {
+    font-weight: bold;
+    font-size: 22px;
+    position: relative;
+    width: 600px;
+    margin-top: -50px;
+    margin-left: 40%;
+}
+
+a {
+    text-decoration: none;
+    color: #1E90B3;
+}
+
+.anasayfa {
+    margin-right: 10px;
+}
+
+
+.izlemeagi {
+    margin-left: 40px;
+}
+
+p {
+    color: #FFFFFF;
+    opacity: 1;
+    font-weight: bold;
+    text-align: center;
+    font-size: 49px;
+    letter-spacing: 0px;
+    margin-top: 300px;
+}

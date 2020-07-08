@@ -27,12 +27,14 @@ namespace UygulamaUI.Controllers
 
         public async Task<IActionResult> Index()
         {
-
+            var apiService = new ApiServices();
+            var token = await apiService.LoginAsync("admin@bioguy.com", "BioGuy2015");
+            HttpContext.Session.SetString("accesstoken", token);
             _accessToken = HttpContext.Session.GetString("accesstoken");
-            if (string.IsNullOrEmpty(_accessToken))
-            {
-                return RedirectToAction("Index", "Login");
-            }
+            //if (string.IsNullOrEmpty(_accessToken))
+            //{
+            //    return RedirectToAction("Index", "Login");
+            //}
             var devices = await _apiService.GetDevicesForCurrentUserAsync(_accessToken);
 
             if (devices == null)
@@ -122,14 +124,6 @@ namespace UygulamaUI.Controllers
 
                 var groupDataList = dataList.Skip(6).Select(x => new { sValue = x.Value, sTime = DateTime.Parse(x.Time) }).GroupBy(x => x.sTime.Day).ToList();
                 var valueList = groupDataList.Select(x => x.Average(z => z.sValue)).ToList();
-                if (i == 1)
-                {
-                    valueList = new List<double?>() { 500, 1500, 1700, 2000, 1400 };
-                }
-                if (i == 2)
-                {
-                    valueList = new List<double?>() { 600, 200, 900, 1000, 750 };
-                }
                 var stringList = (groupDataList.Select(x => (x.First().sTime.Date.Date).ToString("dd.MM.yyyy"))).ToList();
                 var colorIndex = i % (colorListForCharts.Count());
 
@@ -138,6 +132,7 @@ namespace UygulamaUI.Controllers
                 var datasets = new ChartDataSet(sensorName, color, valueList, stringList);
                 var chart = GetChart(datasets);
                 Charts.Add(chart);
+                break;
             }
             return View();
         }
