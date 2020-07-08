@@ -15,12 +15,8 @@
         <img src="~/img/component (2).png" class="resim2" />
     </div>
 </navbar>
-<br/>
-<div class="row justify-content-center mb-2">
-    <img src="~/img/map.PNG" alt="Kadıköy" usemap="#planetmap" />
-    <map name="planetmap">
-        <area class="kadikoy" shape="circle" coords="400,250,50" href="" />
-    </map>
+<br />
+<div class="mb-2" id="divHarita" style="width:100%; height:600px;">
 </div>
 
 <div class="container">
@@ -33,15 +29,15 @@
                 @Html.DropDownList("ddlCihazlar", Model, "Cihaz Seçin", new { @class = "form-control" })
             </div>
             <div class="form-inline justify-content-between m-1">
-                <label>CihazID:</label>
+                <label>Cihaz ID:</label>
                 <label id="deviceId" class="form-control"></label>
             </div>
             <div class="form-inline justify-content-between m-1">
-                <label>CihazName:</label>
+                <label>Cihaz Adı:</label>
                 <label id="deviceName" class="form-control"></label>
             </div>
             <div class="form-inline justify-content-between m-1">
-                <label>Working Mode:</label>
+                <label>Çalışma Modu:</label>
                 <label id="deviceWMode" class="form-control"></label>
             </div>
         </div>
@@ -79,9 +75,25 @@
 
     });
 </script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA4MlKy6TkDxM1mW6lpGj0-PlF1btdJsd8&callback=initMap"
+        type="text/javascript"></script>
 <script>
-    $(".kadikoy").on("click", function (e) {
-        e.preventDefault();
+    function initMap() {
+        var options = {
+            center: new google.maps.LatLng(41.015137, 28.979530),
+            zoom: 11,
+        };  
+        var kadiköyPosition = { lat: 40.985496058, lng: 29.035333192};
+        var map = new google.maps.Map(document.getElementById("divHarita"), options);
+        var marker = new google.maps.Marker({
+            position: kadiköyPosition,
+            map: map
+        });
+        marker.addListener('click', toggleBounce);
+
+    }
+
+    function toggleBounce() {
         $.ajax({
             url: '/Home/GetDeviceInfo',
             data: { id: 1 },
@@ -89,8 +101,9 @@
                 $("#deviceName").html(device.name);
                 $("#deviceId").html(device.id);
                 $("#deviceWMode").html(device.workingMode);
+
                 $("#divCharts").load(`/Home/GetCharts/${device.id}`);
             }
         });
-    });
+    }
 </script>
