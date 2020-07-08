@@ -43,7 +43,7 @@ namespace UygulamaUI.Controllers
             return View(selectlist);
         }
 
-        public Chart GetChart(List<ChartDataSet> chartDataSets)
+        public Chart GetChart(ChartDataSet chartDataSets)
         {
             Chart chart = new Chart();
 
@@ -53,37 +53,34 @@ namespace UygulamaUI.Controllers
 
             data.Datasets = new List<Dataset>();
 
-            for (int i = 0; i < chartDataSets.Count; i++)
-            {
-                if (chartDataSets[i].XValues.Count >0)
-                {
-                    data.Labels = chartDataSets[i].XValues;
-                }
+
+                data.Labels = chartDataSets.XValues;
+             
                 LineDataset dataset = new LineDataset()
                 {
-                    Label = chartDataSets[i].Title,
-                    Data = chartDataSets[i].YValues.Select(x=>(double?)Math.Round(x.Value,2)).ToList(),
+                    Label = chartDataSets.Title,
+                    Data = chartDataSets.YValues.Select(x=>(double?)Math.Round(x.Value,2)).ToList(),
                     Fill = "false",
                     LineTension = 0.1,
-                    BackgroundColor = chartDataSets[i].Color,
-                    BorderColor = chartDataSets[i].Color,
+                    BackgroundColor = chartDataSets.Color,
+                    BorderColor = chartDataSets.Color,
                     BorderCapStyle = "butt",
                     BorderDash = new List<int> { },
                     BorderDashOffset = 0.0,
                     BorderJoinStyle = "miter",
-                    PointBorderColor = new List<ChartColor> { chartDataSets[i].Color },
+                    PointBorderColor = new List<ChartColor> { chartDataSets.Color },
                     PointBackgroundColor = new List<ChartColor> { ChartColor.FromHexString("#ffffff") },
                     PointBorderWidth = new List<int> { 1 },
                     PointHoverRadius = new List<int> { 5 },
-                    PointHoverBackgroundColor = new List<ChartColor> { chartDataSets[i].Color },
-                    PointHoverBorderColor = new List<ChartColor> { chartDataSets[i].Color },
+                    PointHoverBackgroundColor = new List<ChartColor> { chartDataSets.Color },
+                    PointHoverBorderColor = new List<ChartColor> { chartDataSets.Color },
                     PointHoverBorderWidth = new List<int> { 2 },
                     PointRadius = new List<int> { 1 },
                     PointHitRadius = new List<int> { 10 },
                     SpanGaps = false
                 };
                 data.Datasets.Add(dataset);
-            }
+            
 
             chart.Data = data;
             return chart;
@@ -107,7 +104,7 @@ namespace UygulamaUI.Controllers
                 var valueList0 = new List<double?>() { 0, 0, 0, 0, 0 };
                 var stringList0 = new List<string>() { "", "", "", "", "" };
                 var dataSets0 = new ChartDataSet("Sensör Verileri", new ChartColor() { Red = 72, Green = 192, Blue = 192, Alpha = 0.4 }, valueList0, stringList0);
-                Charts = new List<Chart>() { GetChart(new List<ChartDataSet>() { dataSets0 }) };
+                Charts = new List<Chart>() { GetChart(dataSets0) };
                 return View();
             }
             Charts = new List<Chart>();
@@ -117,7 +114,6 @@ namespace UygulamaUI.Controllers
 
             var colorClass = new ColorsSet();
             var colorListForCharts = colorClass.Colors;
-            var dataSets = new List<ChartDataSet>() {};
             for (int i = 0; i < sensorTypeList.Count; i++)
             {
 
@@ -140,10 +136,9 @@ namespace UygulamaUI.Controllers
                 var color = colorListForCharts[colorIndex];
 
                 var datasets = new ChartDataSet(sensorName, color, valueList, stringList);
-                dataSets.Add(datasets);
+                var chart = GetChart(datasets);
+                Charts.Add(chart);
             }
-            var Chart = GetChart(dataSets);
-            Charts.Add(Chart);
             return View();
         }
 
