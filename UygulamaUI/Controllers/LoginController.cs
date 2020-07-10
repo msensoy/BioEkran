@@ -38,6 +38,10 @@ namespace UygulamaUI.Controllers
             ViewData["Hata"] = "Lütfen giriş bilgilerinizi kontrol ediniz";
             return View();
         }
-
+        public IActionResult Exit()
+        {
+            HttpContext.Session.SetString("accesstoken", "");
+            return RedirectToAction("Index", "Anasayfa");
+        }
     }
 }
