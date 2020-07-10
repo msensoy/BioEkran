@@ -1,36 +1,99 @@
 ﻿@using Microsoft.AspNetCore.Http
 @inject IHttpContextAccessor HttpContextAccessor
-<div name="fullnav" class="row justify-content-between" style="background-color: rgba(255, 255, 255, 0.8);">
-    <div name="btkLogo" class="img-fluid col-3 m-3">
-        <img src="~/img/component (1).png" class="resim1" />
-    </div>
-    <div name="navbar" class="col-6 mt-5">
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a href="/Anasayfa" class="navbar-brand " style="color: #1E90B3; font-weight: bold; font-size: 150%; opacity: 1.0;">ANASAYFA</a>
-                    <a href="/Home/Index" class="navbar-brand " style="color: #1E90B3; font-weight: bold; font-size: 150%; opacity: 1.0;">İZLEME AĞI</a>
-                    <a href="/Rapor/Index" class="navbar-brand " style="color: #1E90B3; font-weight: bold; font-size: 150%; opacity: 1.0;">RAPORLAR</a>
-                    <a href="#" class="navbar-brand " style="color: #1E90B3; font-weight: bold; font-size: 150%; opacity: 1.0;">İÇERİKLER</a>
-                    <a href="/Contact/Index" class="navbar-brand " style="color: #1E90B3; font-weight: bold; font-size: 150%; opacity: 1.0;">İLETİŞİM</a>
+@*<div name="fullnav" class="row justify-content-between" style="background-color: rgba(255, 255, 255, 0.8);">
+        <div name="btkLogo" class="img-fluid col-3 m-3">
+            <img src="~/img/component (1).png" style="width:80%" />
+        </div>
+        <div name="navbar" class="col-6 mt-5">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a href="/Anasayfa" class="navbar-brand " style="color: #1E90B3; font-weight: bold; font-size: 150%; opacity: 1.0;">ANASAYFA</a>
+                        <a href="/Home/Index" class="navbar-brand " style="color: #1E90B3; font-weight: bold; font-size: 150%; opacity: 1.0;">İZLEME AĞI</a>
+                        <a href="/Rapor/Index" class="navbar-brand " style="color: #1E90B3; font-weight: bold; font-size: 150%; opacity: 1.0;">RAPORLAR</a>
+                        <a href="#" class="navbar-brand " style="color: #1E90B3; font-weight: bold; font-size: 150%; opacity: 1.0;">İÇERİKLER</a>
+                        <a href="/Contact/Index" class="navbar-brand " style="color: #1E90B3; font-weight: bold; font-size: 150%; opacity: 1.0;">İLETİŞİM</a>
+                        @{
+                            var session = HttpContextAccessor.HttpContext.Session.GetString("accesstoken");
+                            if (string.IsNullOrEmpty(session))
+                            {
+                                <a href="/Login/Index" class="navbar-brand " style="color: #1E90B3; font-weight: bold; font-size: 150%; opacity: 1.0;">ÜYELİK</a>
+                            }
+                            else
+                            {
+                                <a href="/Login/Exit" class="navbar-brand " style="color: #1E90B3; font-weight: bold; font-size: 150%; opacity: 1.0;">ÇIKIŞ</a>
+                            }
+
+                        }
+
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div name="ibbLogo" class="img-fluid col-2">
+            <img src="~/img/component (2).png" class="resim2" />
+        </div>
+     <li class="nav-item">
                     @{
                         var session = HttpContextAccessor.HttpContext.Session.GetString("accesstoken");
                         if (string.IsNullOrEmpty(session))
                         {
-                            <a href="/Login/Index" class="navbar-brand " style="color: #1E90B3; font-weight: bold; font-size: 150%; opacity: 1.0;">ÜYELİK</a>
+                            <a class="nav-link" href="/Login/Index" style="color:brown">ÜYELİK</a>
                         }
                         else
                         {
-                            <a href="/Login/Exit" class="navbar-brand " style="color: #1E90B3; font-weight: bold; font-size: 150%; opacity: 1.0;">ÇIKIŞ</a>
+                            <a class="nav-link" href="/Login/Exit" style="color:brown">ÇIKIŞ</a>
                         }
-
                     }
+                </li>
+    </div>*@
 
-                </div>
-            </div>
-        </nav>
-    </div>
-    <div name="ibbLogo" class="img-fluid col-2">
-        <img src="~/img/component (2).png" class="resim2" />
-    </div>
-</div>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white static-top">
+   
+        <a class="navbar-brand" href="#">
+            <img src="~/img/component (1).png" />
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" style="margin-left:15%;" id="navbarResponsive">
+            <ul class="navbar-nav">
+
+                <li class="nav-item">
+                    <a class="nav-link" style="color: #1E90B3; font-weight: bold; font-size: 150%;" href="/Anasayfa">ANASAYFA</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="color: #1E90B3; font-weight: bold; font-size: 150%;" href="/Home/Index">İZLEME AĞI</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="color: #1E90B3; font-weight: bold; font-size: 150%;" href="/Rapor/Index">RAPORLAR</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="color: #1E90B3; font-weight: bold; font-size: 150%;" href="#">İÇERİKLER</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="color: #1E90B3; font-weight: bold; font-size: 150%;" href="/Contact/Index">İLETİŞİM</a>
+                </li>
+                <li class="nav-item">
+                    @{
+                        var session = HttpContextAccessor.HttpContext.Session.GetString("accesstoken");
+                        if (string.IsNullOrEmpty(session))
+                        {
+                            <a class="nav-link" href="/Login/Index" style="color: #1E90B3; font-weight: bold; font-size: 150%;">ÜYELİK</a>
+                        }
+                        else
+                        {
+                            <a class="nav-link" href="/Login/Exit" style="color: #1E90B3; font-weight: bold; font-size: 150%;">ÇIKIŞ</a>
+                        }
+                    }
+                </li>
+            </ul>
+        </div>
+        <a class="navbar-brand" href="#">
+            <img src="~/img/component (2).png" />
+        </a>
+    
+</nav>
+
