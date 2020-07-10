@@ -110,7 +110,8 @@ namespace UygulamaUI.Controllers
                 return View();
             }
             Charts = new List<Chart>();
-            _accessToken = HttpContext.Session.GetString("accesstoken");
+            var apiService = new ApiServices();
+            var _accesstoken = await apiService.LoginAsync("admin@bioguy.com", "BioGuy2015");
             var sensorDataList = await _apiService.SearchDevicesAsync(deviceId, _accessToken);
             var sensorTypeList = await _apiService.GetSensorTypesAsync(_accessToken);
 

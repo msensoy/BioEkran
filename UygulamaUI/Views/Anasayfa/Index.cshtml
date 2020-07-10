@@ -1,26 +1,27 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"]Anasayfa</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/anasayfa.css" />
-</head>
-<body>
-    <navbar>
-        <div class="navBizim">
-            <img src="~/img/component (1).png" class="resim1" />
-            <div class="menu">
-                <a href="/Anasayfa/Index" class="anasayfa">ANASAYFA</a>
-                <a href="/Home/Index" class="izlemeagi">İZLEME AĞI</a>
-            </div>
-            <img src="~/img/component (2).png" class="resim2" />
-        </div>
-    </navbar>
-    <div>
-        <p>YENİLİKÇİ ve ÇEVRECİ BİYOREMİDASYON TEKNOLOJİSİ</p>
-    </div>
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 
-</body>
-</html>
+    <div class="justify-content-center" style="margin-top:10px;">
+        <div style="margin: auto;
+        color:#FFFFFF;
+        width: 80%;
+        background-color: rgba(29, 26, 49, 0.49);
+        font-weight: bold;
+        text-align: center;
+        font-size: 33px;
+        letter-spacing: 0px;
+    ">
+            <div class="row justify-content-between ml-5 ">
+                <div>
+                    <span style="font-size:20px;"> DÜNYANIN EN ETKİLİ ve AKILLI BİYOREMEDİASYON TEKNOLOJİSİ</span>
+                </div>
+                <div style=""><img src="~/img/yerliLogo.jpg" /></div>
+            </div>
+         
+            
+        </div>
+        <div style="margin-top: 200px; color: #FFFFFF; opacity: 1; font-weight: bold; text-align: center; font-size: 33px; letter-spacing: 0px; ">YENİLİKÇİ ve ÇEVRECİ BİYOREMİDASYON TEKNOLOJİSİ</div>
+    </div>

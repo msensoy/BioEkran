@@ -8,6 +8,7 @@ namespace UygulamaUI.Controllers
 {
     public class AnasayfaController : Controller
     {
+      
         public IActionResult Index()
         {
             return View();
