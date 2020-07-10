@@ -11,18 +11,33 @@
 
 <div class="container">
 
-    <div id="gosterge" class="row justify-content-center">
+    <div id="gosterge" class="row justify-content-center" style="display:none; z-index:9; position: fixed;
+  top: 12%;
+  left:40%;
+  ">
 
         <div class="row justify-content-center m-5" style="height:600px;width:100%">
-            <div style="        height: 90%;
-        width: 35%;
+            <div style="
+        height: 90%;
+        width: 100%;
         border-radius: 25px;
-        border:1px solid;
-        border-color:rgb(220, 220, 217);
-        box-shadow:6px 6px 6px rgba(103, 221, 35, 0.4);
-">
-                <div class="" style="height:15%;width:100%; text-align:center">
-                    <span style="color:rgba(11, 137, 11, 0.63);font-size:xx-large;font-family: 'Roboto Condensed', sans-serif !important;">KADIKÖY</span>
+        border: 1px solid;
+        border-color: rgb(220, 220, 217);
+        box-shadow: 6px 6px 6px rgba(103, 221, 35, 0.4);
+        background-color: white
+    ">
+                <div class="row " style="height:15%;width:100%; text-align:center">
+                    <div style="margin-left:35%" >
+                        <span style="color:rgba(11, 137, 11, 0.63);font-size:xx-large;font-family: 'Roboto Condensed', sans-serif !important; margin-top:3px; margin-left:3px;">KADIKÖY</span>
+
+                    </div>
+                    <div style="margin-left:15%" >
+                        <button type="button" class="btn cancel" onclick="closeForm()">
+                            <span style="color:rgba(100, 239, 52, 0.75); font-size:x-large;">X</span>
+                        </button>
+                    </div>
+                 
+                    
                 </div>
                 <div class="row ml-1" style="height:40%;width:100%;padding-left:90px;">
                     <img src="~/img/leaf.PNG" style="max-width: 100%; max-height: 100%;" />
@@ -31,34 +46,35 @@
                     <div style="width:30%; font-size:xx-large; color:forestgreen">pH:7</div>
                     <div style="width:30%; font-size:x-large; color:rgba(11, 137, 11, 0.63)">İYİ</div>
                 </div>
-                <hr/>
+                <hr />
                 <div>
                     <div class="row justify-content-between m-2 pl-3 border-bottom">
                         <div>pH:</div>
                         <div class="mr-5">6.5-9</div>
                     </div>
-                 
+
                     <div class="row justify-content-between m-2 pl-3 border-bottom">
                         <div>Yağ Gres Oranı</div>
                         <div class="mr-5">%20</div>
                     </div>
-              
+
                     <div class="row justify-content-between m-2 pl-3 border-bottom">
                         <div>KOİ</div>
                         <div class="mr-5">İnaktif</div>
                     </div>
-            
+
                     <div class="row justify-content-between m-2 pl-3 border-bottom">
                         <div>BOİ</div>
                         <div class="mr-5">İnaktif</div>
                     </div>
- 
+
                     <div class="row justify-content-between m-2 pl-3 ">
                         <div>Akış Debisi</div>
                         <div class="mr-5">İnaktif</div>
                     </div>
                 </div>
             </div>
+            
         </div>
 
 
@@ -108,29 +124,17 @@
             position: kadiköyPosition,
             map: map
         });
-        marker.addListener('click', toggleBounce);
+        marker.addListener('click', openForm);
 
     };
-    function toggleBounce() {
 
-        alert("Kadıköy Seçildi");
-
-        //$.ajax({
-        //    url: '/Home/GetDeviceInfo',
-        //    data: { id: 1 },
-        //    success: function (device) {
-        //        $("#deviceName").html(device.name);
-        //        $("#deviceId").html(device.id);
-        //        $("#deviceWMode").html(device.workingMode);
-
-        //        $("#divCharts").load(`/Home/GetCharts/${device.id}`);
-        //    }
-        //});
-     
-            $('html, body').animate({
-                scrollTop: $($(this).attr('href')).offset().top
-            }, 1000);
-            return false;
+    function openForm() {
+        document.getElementById("gosterge").style.display = "block";
+        document.getElementById("divHarita").style.opacity = "0.3";
     };
 
+    function closeForm() {
+        document.getElementById("gosterge").style.display = "none";
+        document.getElementById("divHarita").style.opacity = "1";
+    };
 </script>
