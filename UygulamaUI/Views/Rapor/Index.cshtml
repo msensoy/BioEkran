@@ -39,7 +39,7 @@
                         <option value="ilce" disabled>Esenler</option>
                         <option value="ilce" disabled>Eyüp</option>
                         <option value="ilce" disabled>Fatih</option>
-                        <option value="ilce">Kadıköy</option>
+                        <option value="1">Kadıköy</option>
                         <option value="ilce" disabled>Şişli</option>
                         <option value="ilce" disabled>Ümraniye</option>
                         <option value="ilce" disabled>Üsküdar</option>
@@ -76,20 +76,20 @@
     <script src="~/lib/jquery/dist/jquery.js"></script>
     <script>
         $(document).ready(function () {
+            $("#ilceler").change(function () {
+                console.log($("#ilceler").val());
+                $.ajax({
+                    url: '/Home/GetDeviceInfo',
+                    data: { id: $("#ilceler").val() },
+                    success: function (device) {
+                        $("#deviceName").html(device.name);
+                        $("#deviceId").html(device.id);
+                        $("#deviceWMode").html(device.workingMode);
 
-
-            $.ajax({
-                url: '/Home/GetDeviceInfo',
-                data: { id: 1 },
-                success: function (device) {
-                    $("#deviceName").html(device.name);
-                    $("#deviceId").html(device.id);
-                    $("#deviceWMode").html(device.workingMode);
-
-                    $("#divCharts").load(`/Home/GetCharts/1`);
-                }
+                        $("#divCharts").load(`/Home/GetCharts/${device.id}`);
+                    }
+                });
             });
-
         });
     </script>
 
