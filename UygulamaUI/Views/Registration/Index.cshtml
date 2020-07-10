@@ -3,28 +3,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @model UygulamaUI.Models.RegisterBindingModel
-    <div name="fullnav" class="row justify-content-between" style="background-color: rgba(255, 255, 255, 0.8);">
-        <div name="btkLogo" class="img-fluid col-3 m-3">
-            <img src="~/img/component (1).png" class="resim1" />
-        </div>
-        <div name="navbar" class="col-6 mt-5">
-            <nav class="navbar navbar-default">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <a href="/Anasayfa" class="navbar-brand " style="color: #1E90B3; font-weight: bold; font-size: 25px; opacity: 1.0;">ANASAYFA</a>
-                        <a href="/Home/Index" class="navbar-brand " style="color: #1E90B3; font-weight: bold; font-size: 25px; opacity: 1.0;">İZLEME AĞI</a>
-                        <a href="/Rapor/Index" class="navbar-brand " style="color: #1E90B3; font-weight: bold; font-size: 25px; opacity: 1.0;">RAPORLAR</a>
-                        <a href="/Content/Index" class="navbar-brand " style="color: #1E90B3; font-weight: bold; font-size: 25px; opacity: 1.0;">İÇERİKLER</a>
-                        <a href="/Contact/Index" class="navbar-brand " style="color: #1E90B3; font-weight: bold; font-size: 25px; opacity: 1.0;">İLETİŞİM</a>
-                        <a href="/Registration/Index" class="navbar-brand " style="color: #1E90B3; font-weight: bold; font-size: 25px; opacity: 1.0;">ÜYELİK</a>
-                    </div>
-                </div>
-            </nav>
-        </div>
-        <div name="ibbLogo" class="img-fluid col-2">
-            <img src="~/img/component (2).png" class="resim2" />
-        </div>
-    </div>
+@Html.Partial("_Header");
 <div class="container">
     <div class="alert-danger text-white">@ViewData["Hata"]</div>
     <div class="row justify-content-center">
@@ -32,32 +11,32 @@
             @using (Html.BeginForm("Index", "Registration", FormMethod.Post))
             {
 
-                <div class="form-group">
-                    <label>Mail Adresiniz:</label>
-                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Mail adresinizi giriniz.." })
-                    @Html.ValidationMessageFor(m => m.Email)
-                </div>
-                <div class="form-group">
-                    <label>Telefon Numaranız:</label>
-                    @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control", placeholder = "Telefon numaranızı giriniz.." })
-                    @Html.ValidationMessageFor(m => m.PhoneNumber)
-                </div>
-                <div class="form-group">
-                    <label>Şifreniz:</label>
-                    @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Şifrenizi giriniz.." })
-                    @Html.ValidationMessageFor(m => m.Password)
-                </div>
-                <div class="form-group">
-                    <label>Şifre Onay:</label>
-                    @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", placeholder = "Tekrar şifrenizi giriniz.." })
-                    @Html.ValidationMessageFor(m => m.ConfirmPassword)
-                </div>
+            <div class="form-group">
+                <label>Mail Adresiniz:</label>
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Mail adresinizi giriniz.." })
+                @Html.ValidationMessageFor(m => m.Email)
+            </div>
+            <div class="form-group">
+                <label>Telefon Numaranız:</label>
+                @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control", placeholder = "Telefon numaranızı giriniz.." })
+                @Html.ValidationMessageFor(m => m.PhoneNumber)
+            </div>
+            <div class="form-group">
+                <label>Şifreniz:</label>
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Şifrenizi giriniz.." })
+                @Html.ValidationMessageFor(m => m.Password)
+            </div>
+            <div class="form-group">
+                <label>Şifre Onay:</label>
+                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", placeholder = "Tekrar şifrenizi giriniz.." })
+                @Html.ValidationMessageFor(m => m.ConfirmPassword)
+            </div>
 
-                <div class="form-inline justify-content-between mb-1">
-                    <a class="btn btn-warning" href="/Login/Index">Geri Dön</a>
-                    <button type="submit" class="btn btn-success">Tamamla</button>
-                </div>
-                
+            <div class="form-inline justify-content-between mb-1">
+                <a class="btn btn-warning" href="/Login/Index">Geri Dön</a>
+                <button type="submit" class="btn btn-success">Tamamla</button>
+            </div>
+
             }
         </div>
     </div>

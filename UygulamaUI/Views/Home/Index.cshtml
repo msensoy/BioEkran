@@ -5,28 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-    <div name="fullnav" class="row justify-content-between" style="background-color: rgba(255, 255, 255, 0.8);">
-        <div name="btkLogo" class="img-fluid col-3 m-3">
-            <img src="~/img/component (1).png" class="resim1" />
-        </div>
-        <div name="navbar" class="col-6 mt-5">
-            <nav class="navbar navbar-default">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <a href="/Anasayfa" class="navbar-brand " style="color: #1E90B3; font-weight: bold; font-size: 25px; opacity: 1.0;">ANASAYFA</a>
-                        <a href="/Home/Index" class="navbar-brand " style="color: #1E90B3; font-weight: bold; font-size: 25px; opacity: 1.0;">İZLEME AĞI</a>
-                        <a href="/Rapor/Index" class="navbar-brand " style="color: #1E90B3; font-weight: bold; font-size: 25px; opacity: 1.0;">RAPORLAR</a>
-                        <a href="/Content/Index" class="navbar-brand " style="color: #1E90B3; font-weight: bold; font-size: 25px; opacity: 1.0;">İÇERİKLER</a>
-                        <a href="/Contact/Index" class="navbar-brand " style="color: #1E90B3; font-weight: bold; font-size: 25px; opacity: 1.0;">İLETİŞİM</a>
-                        <a href="/Registration/Index" class="navbar-brand " style="color: #1E90B3; font-weight: bold; font-size: 25px; opacity: 1.0;">ÜYELİK</a>
-                    </div>
-                </div>
-            </nav>
-        </div>
-        <div name="ibbLogo" class="img-fluid col-2">
-            <img src="~/img/component (2).png" class="resim2" />
-        </div>
-    </div>
+@Html.Partial("_Header");
 <br />
 <div class="mb-2" id="divHarita" style="width:100%; height:600px;">
 </div>
@@ -49,17 +28,17 @@
         background-color: white
     ">
                 <div class="row " style="height:15%;width:100%; text-align:center">
-                    <div style="margin-left:35%" >
+                    <div style="margin-left:35%">
                         <span style="color:rgba(11, 137, 11, 0.63);font-size:xx-large;font-family: 'Roboto Condensed', sans-serif !important; margin-top:3px; margin-left:3px;">KADIKÖY</span>
 
                     </div>
-                    <div style="margin-left:15%" >
+                    <div style="margin-left:15%">
                         <button type="button" class="btn cancel" onclick="closeForm()">
                             <span style="color:rgba(100, 239, 52, 0.75); font-size:x-large;">X</span>
                         </button>
                     </div>
-                 
-                    
+
+
                 </div>
                 <div class="row ml-1" style="height:40%;width:100%;padding-left:90px;">
                     <img src="~/img/leaf.PNG" style="max-width: 100%; max-height: 100%;" />
@@ -80,7 +59,7 @@
                         <div>Yağ Gres Oranı</div>
                         <div class="mr-5">%20</div>
                     </div>
-                    
+
                     <div class="degerler row justify-content-between m-2 pl-3 border-bottom">
                         <div>KOİ</div>
                         <div class="mr-5">İnaktif</div>
@@ -97,7 +76,7 @@
                     </div>
                 </div>
             </div>
-            
+
         </div>
 
 

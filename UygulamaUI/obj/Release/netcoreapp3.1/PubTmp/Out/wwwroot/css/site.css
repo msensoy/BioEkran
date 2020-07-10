@@ -51,5 +51,10 @@ button.accept-policy {
   line-height: inherit;
 }
 
-/* Sticky footer styles
--------------------------------------------------- */
+.degerler:hover {
+    background-color: rgba(196, 196, 196, 0.10)
+}
+.yerliLogo{
+    width:60%;
+    margin-right:-60px;
+}
