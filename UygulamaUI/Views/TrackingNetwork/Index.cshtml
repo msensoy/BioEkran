@@ -102,7 +102,7 @@
                 $("#divCharts").load(`/Home/GetCharts/${0}`);
             }
             $.ajax({
-                url: '/Home/GetDeviceInfo',
+                url: '/TrackingNetwork/GetDeviceInfo',
                 data: { id: $("#ddlCihazlar").val() },
                 success: function (device) {
                     $("#deviceName").html(device.name);

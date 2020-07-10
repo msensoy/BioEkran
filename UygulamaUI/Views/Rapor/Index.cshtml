@@ -79,14 +79,14 @@
             $("#ilceler").change(function () {
                 console.log($("#ilceler").val());
                 $.ajax({
-                    url: '/Home/GetDeviceInfo',
+                    url: '/TrackingNetwork/GetDeviceInfo',
                     data: { id: $("#ilceler").val() },
                     success: function (device) {
                         $("#deviceName").html(device.name);
                         $("#deviceId").html(device.id);
                         $("#deviceWMode").html(device.workingMode);
 
-                        $("#divCharts").load(`/Home/GetCharts/${device.id}`);
+                        $("#divCharts").load(`/TrackingNetwork/GetCharts/${device.id}`);
                     }
                 });
             });
