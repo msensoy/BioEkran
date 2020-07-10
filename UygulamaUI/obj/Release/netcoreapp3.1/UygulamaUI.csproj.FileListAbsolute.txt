@@ -802,3 +802,4 @@ C:\Users\MONSTER\GitHub\BioEkran\UygulamaUI\obj\Release\netcoreapp3.1\staticweba
 C:\Users\MONSTER\GitHub\BioEkran\UygulamaUI\obj\Release\netcoreapp3.1\UygulamaUI.dll
 C:\Users\MONSTER\GitHub\BioEkran\UygulamaUI\obj\Release\netcoreapp3.1\UygulamaUI.pdb
 C:\Users\MONSTER\GitHub\BioEkran\UygulamaUI\obj\Release\netcoreapp3.1\UygulamaUI.genruntimeconfig.cache
+C:\Users\MONSTER\GitHub\BioEkran\UygulamaUI\obj\Release\netcoreapp3.1\Razor\Views\Shared\_Header.cshtml.g.cs

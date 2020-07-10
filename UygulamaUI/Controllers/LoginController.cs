@@ -23,21 +23,21 @@ namespace UygulamaUI.Controllers
         }
 
 
-        [HttpPost]
-        public async Task<IActionResult> Index(RegisterBindingModel user)
-        {
+        //[HttpPost]
+        //public async Task<IActionResult> Index(RegisterBindingModel user)
+        //{
 
-            var apiService = new ApiServices();
-            var token = await apiService.LoginAsync(user.Email, user.Password);
-            if (token != null)
-            {
-                HttpContext.Session.SetString("accesstoken", token);
+        //    var apiService = new ApiServices();
+        //    var token = await apiService.LoginAsync(user.Email, user.Password);
+        //    if (token != null)
+        //    {
+        //        HttpContext.Session.SetString("accesstoken", token);
 
-                return RedirectToAction("Index", "Home");
-            }
-            ViewData["Hata"] = "Lütfen giriş bilgilerinizi kontrol ediniz";
-            return View();
-        }
+        //        return RedirectToAction("Index", "Home");
+        //    }
+        //    ViewData["Hata"] = "Lütfen giriş bilgilerinizi kontrol ediniz";
+        //    return View();
+        //}
 
     }
 }

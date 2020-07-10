@@ -3,6 +3,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@Html.Partial("_Header")
 
 <div class="container">
     <div class="row justify-content-center">
@@ -12,10 +13,10 @@
 
         }
     </div>
-    <div class="row justify-content-center">
+    <div class="row justify-content-center" style="margin-top:150px;">
 
         <div class="giris col-5 border">
-            <form method="post" action="">
+            <form method="get" action="">
 
                 <div class="form-group">
                     <label for="inputMail">Mail Adresiniz:</label>
@@ -31,7 +32,8 @@
                     <label> <input type="checkbox"> Beni Hatırla </label>
                 </div>
                 <div class="form-inline justify-content-between mb-1">
-                    <a class="btn btn-info" href="/Registration/Index">Kayıt Ol</a>
+                    @*<a class="btn btn-info" href="/Registration/Index">Kayıt Ol</a>*@
+                    <a class="btn btn-info" href="#">Kayıt Ol</a>
                     <button type="submit" class="btn btn-success flo">Giriş Yap</button>
                 </div>
 

@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@Html.Partial("_Header");
+@Html.Partial("_Header")
 <br />
 <div class="mb-2" id="divHarita" style="width:100%; height:600px;">
 </div>
@@ -40,7 +40,7 @@
 
 
                 </div>
-                <div class="row ml-1" style="height:40%;width:100%;padding-left:90px;">
+                <div class="row ml-1" style="height:35%;width:100%;padding-left:90px;">
                     <img src="~/img/leaf.PNG" style="max-width: 100%; max-height: 100%;" />
                 </div>
                 <div style="height:20%;width:100%; margin-top:-80px; margin-left:30px;">
@@ -70,9 +70,13 @@
                         <div class="mr-5">İnaktif</div>
                     </div>
 
-                    <div class="degerler row justify-content-between m-2 pl-3 ">
+                    <div class="degerler row justify-content-between m-2 pl-3 border-bottom">
                         <div>Akış Debisi</div>
                         <div class="mr-5">İnaktif</div>
+                    </div>
+                    <div class="degerler row justify-content-between m-2 pl-3 ">
+                        <div>Su Seviyesi</div>
+                        <div class="mr-5">0</div>
                     </div>
                 </div>
             </div>
