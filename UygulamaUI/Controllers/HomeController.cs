@@ -90,8 +90,9 @@ namespace UygulamaUI.Controllers
 
         public async Task<JsonResult> GetDeviceInfo(int id)
         {
-            _accessToken = HttpContext.Session.GetString("accesstoken");
-            var devices = await _apiService.GetDevicesForCurrentUserAsync(_accessToken);
+            var apiService = new ApiServices();
+            var accesstoken = await apiService.LoginAsync("admin@bioguy.com", "BioGuy2015");
+            var devices = await _apiService.GetDevicesForCurrentUserAsync(accesstoken);
             var device = devices.Where(x => x.Id == id).FirstOrDefault();
 
             return Json(device);

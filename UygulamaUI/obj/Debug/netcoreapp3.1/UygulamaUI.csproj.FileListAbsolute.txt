@@ -1422,3 +1422,5 @@ C:\Users\MelinaAero\Documents\Github\BioEkran\UygulamaUI\obj\Debug\netcoreapp3.1
 C:\Users\MelinaAero\Documents\Github\BioEkran\UygulamaUI\obj\Debug\netcoreapp3.1\Razor\Views\Rapor\Index.cshtml.g.cs
 C:\Users\MelinaAero\Documents\Github\BioEkran\UygulamaUI\obj\Debug\netcoreapp3.1\Razor\Views\Home\GetCharts.cshtml.g.cs
 C:\Users\MONSTER\GitHub\BioEkran\UygulamaUI\obj\Debug\netcoreapp3.1\Razor\Views\Rapor\Index.cshtml.g.cs
+C:\Users\MONSTER\GitHub\BioEkran\UygulamaUI\obj\Debug\netcoreapp3.1\Razor\Views\Content\Index.cshtml.g.cs
+C:\Users\MONSTER\GitHub\BioEkran\UygulamaUI\obj\Debug\netcoreapp3.1\Razor\Views\Contact\Index.cshtml.g.cs
