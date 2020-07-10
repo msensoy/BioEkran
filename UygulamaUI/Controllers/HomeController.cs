@@ -111,9 +111,9 @@ namespace UygulamaUI.Controllers
             }
             Charts = new List<Chart>();
             var apiService = new ApiServices();
-            var _accesstoken = await apiService.LoginAsync("admin@bioguy.com", "BioGuy2015");
-            var sensorDataList = await _apiService.SearchDevicesAsync(deviceId, _accessToken);
-            var sensorTypeList = await _apiService.GetSensorTypesAsync(_accessToken);
+            var accesstoken = await apiService.LoginAsync("admin@bioguy.com", "BioGuy2015");
+            var sensorDataList = await _apiService.SearchDevicesAsync(deviceId, accesstoken);
+            var sensorTypeList = await _apiService.GetSensorTypesAsync(accesstoken);
 
             var colorClass = new ColorsSet();
             var colorListForCharts = colorClass.Colors;
