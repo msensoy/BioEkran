@@ -56,7 +56,7 @@ namespace UygulamaUI
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Anasayfa}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }

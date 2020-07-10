@@ -33,7 +33,7 @@ namespace UygulamaUI.Controllers
             {
                 HttpContext.Session.SetString("accesstoken", token);
 
-                return RedirectToAction("Index", "Anasayfa");
+                return RedirectToAction("Index", "Home");
             }
             ViewData["Hata"] = "Lütfen giriş bilgilerinizi kontrol ediniz";
             return View();
@@ -41,7 +41,7 @@ namespace UygulamaUI.Controllers
         public IActionResult Exit()
         {
             HttpContext.Session.SetString("accesstoken", "");
-            return RedirectToAction("Index", "Anasayfa");
+            return RedirectToAction("Index", "Home");
         }
     }
 }

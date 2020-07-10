@@ -3,10 +3,9 @@ using Microsoft.AspNetCore.Http;
 using UygulamaUI.Services.Data;
 using System.Threading.Tasks;
 
-
 namespace UygulamaUI.Controllers
 {
-    public class RaporController : Controller
+    public class ReportController : Controller
     {
         string _accessToken = "";
         ApiServices _apiService = new ApiServices();

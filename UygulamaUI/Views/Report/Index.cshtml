@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
-<body style="background: #F7F8FB; opacity:10px;">
+<body style="background: #F7F8FB;">
 
     @{
         ViewData["Title"] = "Index";
@@ -30,8 +30,8 @@
                 <div class="form-inline justify-content-between ">
 
 
-                    <select id="ilceler" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; border:none; background-color:transparent; width:90%;" class="ml-4 border-bottom">
-                        <option value="" selected disabled hidden class="ilcebr">İlçe Seçiniz</option>
+                    <select id="ilceler" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; border:none; background-color:transparent; width:85%;" class="ml-4 pb-2 border-bottom">
+                        <option value="" selected disabled hidden style="border-bottom:solid">İlçe Seçiniz</option>
                         <option value="ilce" disabled>Bakırköy</option>
                         <option value="ilce" disabled>Beşiktaş</option>
                         <option value="ilce" disabled>Büyükçekmece</option>
@@ -45,20 +45,22 @@
                         <option value="ilce" disabled>Üsküdar</option>
                     </select>
                 </div>
-                <div class="form-inline justify-content-between m-1 pt-2 fontss">
-                    <label class="labels">Cihaz ID:</label>
+                <div class="form-inline justify-content-between m-1 pt-2 pr-5" style="color: #707070; font-family:'Gill Sans MT'">
+                    <label style=" margin-top: 10px; padding-left: 20px;">Cihaz ID:</label>
                     <label id="deviceId"></label>
                 </div>
-                <div class="form-inline justify-content-between m-1  fontss">
-                    <label class="labels">Cihaz Adı:</label>
-                    <label id="deviceName" ></label>
+                <div class="form-inline justify-content-between m-1 pr-5" style="color: #707070; font-family:'Gill Sans MT'">
+                    <label style=" margin-top: 10px; padding-left: 20px;">Cihaz Adı:</label>
+                    <label id="deviceName"></label>
                 </div>
-                <div class="form-inline justify-content-between m-1  fontss">
-                    <label class="labels">Çalışma Modu:</label>
-                    <label id="deviceWMode" ></label>
+                <div class="form-inline justify-content-between m-1 pr-5" style="        color: #707070;
+        font-family: 'Gill Sans MT'
+">
+                    <label style=" margin-top: 10px; padding-left: 20px;">Çalışma Modu:</label>
+                    <label id="deviceWMode"></label>
                 </div>
-                <div class="form-inline justify-content-between m-1  fontss">
-                    <label class="labels">Su Seviyesi:</label>
+                <div class="form-inline justify-content-between m-1 pr-5" style="color: #707070; font-family:'Gill Sans MT'">
+                    <label style=" margin-top: 10px; padding-left: 20px;">Su Seviyesi:</label>
                     <label id="deviceWaterLevel"></label>
                 </div>
             </div>
@@ -72,7 +74,7 @@
             @* graphics will come here *@
         </div>
     </div>
- 
+
     <script src="~/lib/jquery/dist/jquery.js"></script>
     <script>
         $(document).ready(function () {

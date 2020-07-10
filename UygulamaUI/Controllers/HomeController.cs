@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace UygulamaUI.Controllers
 {
-    public class AnasayfaController : Controller
+    public class HomeController : Controller
     {
         string _accessToken = "";
         ApiServices _apiService = new ApiServices();
