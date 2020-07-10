@@ -1,15 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
+using UygulamaUI.Services.Data;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+
 
 namespace UygulamaUI.Controllers
 {
     public class RaporController : Controller
     {
-        public IActionResult Index()
+        string _accessToken = "";
+        ApiServices _apiService = new ApiServices();
+        public async Task<IActionResult> Index()
         {
+            _accessToken = HttpContext.Session.GetString("accesstoken");
+            if (string.IsNullOrEmpty(_accessToken))
+            {
+                return RedirectToAction("Index", "Login");
+            }
             return View();
         }
     }

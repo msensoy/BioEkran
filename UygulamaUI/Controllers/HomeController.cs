@@ -27,14 +27,11 @@ namespace UygulamaUI.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var apiService = new ApiServices();
-            var token = await apiService.LoginAsync("admin@bioguy.com", "BioGuy2015");
-            HttpContext.Session.SetString("accesstoken", token);
             _accessToken = HttpContext.Session.GetString("accesstoken");
-            //if (string.IsNullOrEmpty(_accessToken))
-            //{
-            //    return RedirectToAction("Index", "Login");
-            //}
+            if (string.IsNullOrEmpty(_accessToken))
+            {
+                return RedirectToAction("Index", "Login");
+            }
             var devices = await _apiService.GetDevicesForCurrentUserAsync(_accessToken);
 
             if (devices == null)

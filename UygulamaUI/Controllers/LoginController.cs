@@ -14,30 +14,30 @@ namespace UygulamaUI.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            var token = HttpContext.Session.GetString("accesstoken");
-            if (!string.IsNullOrEmpty(token))
-            {
-                HttpContext.Session.SetString("accesstoken", "");
-            }
+        //    var token = HttpContext.Session.GetString("accesstoken");
+        //    if (!string.IsNullOrEmpty(token))
+        //    {
+        //        HttpContext.Session.SetString("accesstoken", "");
+        //    }
             return View();
         }
 
 
-        //[HttpPost]
-        //public async Task<IActionResult> Index(RegisterBindingModel user)
-        //{
+        [HttpPost]
+        public async Task<IActionResult> Index(RegisterBindingModel user)
+        {
 
-        //    var apiService = new ApiServices();
-        //    var token = await apiService.LoginAsync(user.Email, user.Password);
-        //    if (token != null)
-        //    {
-        //        HttpContext.Session.SetString("accesstoken", token);
+            var apiService = new ApiServices();
+            var token = await apiService.LoginAsync(user.Email, user.Password);
+            if (token != null)
+            {
+                HttpContext.Session.SetString("accesstoken", token);
 
-        //        return RedirectToAction("Index", "Home");
-        //    }
-        //    ViewData["Hata"] = "Lütfen giriş bilgilerinizi kontrol ediniz";
-        //    return View();
-        //}
+                return RedirectToAction("Index", "Anasayfa");
+            }
+            ViewData["Hata"] = "Lütfen giriş bilgilerinizi kontrol ediniz";
+            return View();
+        }
 
     }
 }
