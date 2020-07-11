@@ -71,6 +71,7 @@
 
 
         <div id="divCharts" class="col-sm-7  col-md-7 col-lg-7  border ml-3 gpdiv mt-md-3 mt-sm-3">
+            <img id="loader" src="~/img/Loader.gif" alt="Alternate Text" style="display:none; width:50%;" />
             @* graphics will come here *@
         </div>
     </div>
@@ -83,12 +84,21 @@
                 $.ajax({
                     url: '/TrackingNetwork/GetDeviceInfo',
                     data: { id: $("#ilceler").val() },
+                    beforeSend: function () {
+                        $("#loader").show();
+                    },
+                    complete: function () {
+                        $("#loader").hide();
+                    },
                     success: function (device) {
                         $("#deviceName").html(device.name);
                         $("#deviceId").html(device.id);
                         $("#deviceWMode").html(device.workingMode);
 
                         $("#divCharts").load(`/TrackingNetwork/GetCharts/${device.id}`);
+                    },
+                    error: function () {
+                        alert("Hata oluştu");
                     }
                 });
             });
