@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body style="background: #F7F8FB;">
+
+    @{
+        ViewData["Title"] = "Raporlar";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
+    @Html.Partial("_Header");
+
+    <div class="row justify-content-center" style="width:100%;height:300px; margin-top:3%;">
+
+
+
+        <div class="col-sm-5 col-md-6 col-lg-3 mt-3 ">
+            <div class="icerikgp pt-3">
+                <div class="form-inline justify-content-between ">
+
+
+                    <select id="ilceler" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; border:none; background-color:transparent; width:85%;" class="ml-4 pb-2 border-bottom">
+                        <option value="" selected disabled hidden style="border-bottom:solid">İlçe Seçiniz</option>
+                        <option value="ilce" disabled>Bakırköy</option>
+                        <option value="ilce" disabled>Beşiktaş</option>
+                        <option value="ilce" disabled>Büyükçekmece</option>
+                        <option value="ilce" disabled>Eminönü</option>
+                        <option value="ilce" disabled>Esenler</option>
+                        <option value="ilce" disabled>Eyüp</option>
+                        <option value="ilce" disabled>Fatih</option>
+                        <option value="1">Kadıköy</option>
+                        <option value="ilce" disabled>Şişli</option>
+                        <option value="ilce" disabled>Ümraniye</option>
+                        <option value="ilce" disabled>Üsküdar</option>
+                    </select>
+                </div>
+                <div class="form-inline justify-content-between m-1 pt-2 pr-5" style="color: #707070; font-family:'Gill Sans MT'">
+                    <label style="padding-left: 20px;">Cihaz ID:</label>
+                    <label id="deviceId"></label>
+                </div>
+                <div class="form-inline justify-content-between m-1 pr-5" style="color: #707070; font-family:'Gill Sans MT'">
+                    <label style=" padding-left: 20px;">Cihaz Adı:</label>
+                    <label id="deviceName"></label>
+                </div>
+                <div class="form-inline justify-content-between m-1 pr-5" style="        color: #707070;
+        font-family: 'Gill Sans MT'
+">
+                    <label style="  padding-left: 20px;">Çalışma Modu:</label>
+                    <label id="deviceWMode"></label>
+                </div>
+                <div class="form-inline justify-content-between m-1 pr-5" style="color: #707070; font-family:'Gill Sans MT'">
+                    <label style=" padding-left: 20px;">Su Seviyesi:</label>
+                    <label id="deviceWaterLevel"></label>
+                </div>
+            </div>
+            <div style="width:50px; height:100%;"></div>
+        </div>
+
+
+
+
+        <div id="divCharts" class="col-sm-7  col-md-7 col-lg-7  border ml-3 gpdiv mt-md-3 mt-sm-3">
+            <img id="loader" src="~/img/Loader.gif" alt="Alternate Text" style="display:none; width:50%;" />
+            @* graphics will come here *@
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#ilceler").change(function () {
+                console.log($("#ilceler").val());
+                $.ajax({
+                    url: '/TrackingNetwork/GetDeviceInfo',
+                    data: { id: $("#ilceler").val() },
+                    beforeSend: function () {
+                        $("#loader").show();
+                    },
+                    complete: function () {
+                        $("#loader").hide();
+                    },
+                    success: function (device) {
+                        $("#deviceName").html(device.name);
+                        $("#deviceId").html(device.id);
+                        $("#deviceWMode").html(device.workingMode);
+
+                        $("#divCharts").load(`/TrackingNetwork/GetCharts/${device.id}`);
+                    },
+                    error: function () {
+                        alert("Hata oluştu");
+                    }
+                });
+            });
+        });
+    </script>
+
+
+
+</body>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</html>

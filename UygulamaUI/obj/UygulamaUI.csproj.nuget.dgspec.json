@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\MelinaAero\\Documents\\Github\\BioEkran\\UygulamaUI\\UygulamaUI.csproj": {}
+    "C:\\Users\\MONSTER\\GitHub\\BioEkran\\UygulamaUI\\UygulamaUI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\MelinaAero\\Documents\\Github\\BioEkran\\UygulamaUI\\UygulamaUI.csproj": {
+    "C:\\Users\\MONSTER\\GitHub\\BioEkran\\UygulamaUI\\UygulamaUI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\MelinaAero\\Documents\\Github\\BioEkran\\UygulamaUI\\UygulamaUI.csproj",
+        "projectUniqueName": "C:\\Users\\MONSTER\\GitHub\\BioEkran\\UygulamaUI\\UygulamaUI.csproj",
         "projectName": "UygulamaUI",
-        "projectPath": "C:\\Users\\MelinaAero\\Documents\\Github\\BioEkran\\UygulamaUI\\UygulamaUI.csproj",
-        "packagesPath": "C:\\Users\\MelinaAero\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\MelinaAero\\Documents\\Github\\BioEkran\\UygulamaUI\\obj\\",
+        "projectPath": "C:\\Users\\MONSTER\\GitHub\\BioEkran\\UygulamaUI\\UygulamaUI.csproj",
+        "packagesPath": "C:\\Users\\MONSTER\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\MONSTER\\GitHub\\BioEkran\\UygulamaUI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\MelinaAero\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\MONSTER\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -69,7 +69,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.202\\RuntimeIdentifierGraph.json"
         }
       }
     }

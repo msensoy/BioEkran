@@ -14,11 +14,11 @@ namespace UygulamaUI.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            var token = HttpContext.Session.GetString("accesstoken");
-            if (!string.IsNullOrEmpty(token))
-            {
-                HttpContext.Session.SetString("accesstoken", "");
-            }
+        //    var token = HttpContext.Session.GetString("accesstoken");
+        //    if (!string.IsNullOrEmpty(token))
+        //    {
+        //        HttpContext.Session.SetString("accesstoken", "");
+        //    }
             return View();
         }
 
@@ -38,6 +38,10 @@ namespace UygulamaUI.Controllers
             ViewData["Hata"] = "Lütfen giriş bilgilerinizi kontrol ediniz";
             return View();
         }
-
+        public IActionResult Exit()
+        {
+            HttpContext.Session.SetString("accesstoken", "");
+            return RedirectToAction("Index", "Home");
+        }
     }
 }

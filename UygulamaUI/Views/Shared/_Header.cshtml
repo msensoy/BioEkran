@@ -1,0 +1,50 @@
+﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+
+<nav class="navbar navbar-expand-lg navbar-light bg-white static-top">
+   
+        <a class="navbar-brand" href="#">
+            <img src="~/img/LogoBaktek.png" />
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" style="margin-left:15%;" id="navbarResponsive">
+            <ul class="navbar-nav">
+
+                <li class="nav-item">
+                    <a class="nav-link" style="color: #1E90B3; font-weight: bold; font-size: 120%;" href="/Home">ANASAYFA</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="color: #1E90B3; font-weight: bold; font-size: 120%;" href="/TrackingNetwork/Index">İZLEME AĞI</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="color: #1E90B3; font-weight: bold; font-size: 120%;" href="/Report/Index">RAPORLAR</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="color: #1E90B3; font-weight: bold; font-size: 120%;" href="#">İÇERİKLER</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="color: #1E90B3; font-weight: bold; font-size: 120%;" href="/Contact/Index">İLETİŞİM</a>
+                </li>
+                <li class="nav-item">
+                    @{
+                        var session = HttpContextAccessor.HttpContext.Session.GetString("accesstoken");
+                        if (string.IsNullOrEmpty(session))
+                        {
+                            <a class="nav-link" href="/Login/Index" style="color: #1E90B3; font-weight: bold; font-size: 120%;">ÜYELİK</a>
+                        }
+                        else
+                        {
+                            <a class="nav-link" href="/Login/Exit" style="color: #1E90B3; font-weight: bold; font-size: 120%;">ÇIKIŞ</a>
+                        }
+                    }
+                </li>
+            </ul>
+        </div>
+        <a class="navbar-brand" href="#">
+            <img src="~/img/LogoIBB.png" />
+        </a>
+    
+</nav>
+

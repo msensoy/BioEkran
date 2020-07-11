@@ -1,68 +1,27 @@
-﻿@using UygulamaUI.Models
-@model SelectList
+﻿
 @{
     ViewData["Title"] = "Anasayfa";
-    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@Html.Partial("_Header")
 
-<div class="container">
-
-
-    <div class="row justify-content-end m-3">
-        <a class="btn btn-info mr-3" href="/Login/Index">Düzenle</a>
-        <a class="btn btn-danger" href="/Login/Index">Çıkış Yap</a>
-    </div>
-
-    <div class="row justify-content-center">
-
-        <div class="col-4 border">
-            <div class="form-inline justify-content-between m-1">
-                <label>Cihaz:</label>
-                @Html.DropDownList("ddlCihazlar", Model, "Cihaz Seçin", new { @class = "form-control" })
+<div class="justify-content-center" style="margin-top:10px;">
+    <div style="margin: auto;
+        color:#FFFFFF;
+        width: 80%;
+        background-color: rgba(29, 26, 49, 0.49);
+        font-weight: bold;
+        text-align: center;
+        font-size: 33px;
+        letter-spacing: 0px;
+    ">
+        <div class="row justify-content-between ml-5 ">
+            <div style="text-align:center;">
+                <span style="font-size:20px;"> DÜNYANIN EN ETKİLİ ve AKILLI BİYOREMEDİASYON TEKNOLOJİSİ</span>
             </div>
-            <div class="form-inline justify-content-between m-1">
-                <label>CihazID:</label>
-                <label id="deviceId" class="form-control"></label>
-            </div>
-            <div class="form-inline justify-content-between m-1">
-                <label>CihazName:</label>
-                <label id="deviceName" class="form-control"></label>
-            </div>
-            <div class="form-inline justify-content-between m-1">
-                <label>Working Mode:</label>
-                <label id="deviceWMode" class="form-control"></label>
-            </div>
+            <div style=""><img src="~/img/LogoYerliUretim.jpg" style="width:60%; margin-right:-60px;" /></div>
         </div>
 
-        <div id="divCharts" class="col-7 border ml-3">
-            @* graphics will come here *@
-        </div>
 
     </div>
-
-    <script src="~/lib/jquery/dist/jquery.js"></script>
-    <script>
-        $(document).ready(function () {
-            $("#ddlCihazlar").change(function () {
-                if ($("#ddlCihazlar option:selected").text() == "Cihaz Seçin") {
-                    $("#deviceName").html("");
-                    $("#deviceId").html("");
-                    $("#deviceWMode").html("");
-                    $("#divCharts").load(`/Home/GetCharts/${0}`);
-                }
-                $.ajax({
-                    url: '/Home/GetDeviceInfo',
-                    data: { id: $("#ddlCihazlar").val() },
-                    success: function (device) {
-                        $("#deviceName").html(device.name);
-                        $("#deviceId").html(device.id);
-                        $("#deviceWMode").html(device.workingMode);
-
-                        $("#divCharts").load(`/Home/GetCharts/${device.id}`);
-                    }
-                });
-            });
-        });
-    </script>
-
-
+    <div style="margin-top: 300px; color: #FFFFFF; opacity: 1; font-weight: bold; text-align: center; font-size: 33px; letter-spacing: 0px; ">İSTANBUL'UN ATIK SU ALT YAPISI BIOGUY II İLE TAKİP EDİLİYOR VE PATENTLİ DOĞAL BAKTERİ TEKNOLOJİSİ İLE YERİNDE TEMİZLENİYOR</div>
+</div>
