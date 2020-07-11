@@ -780,13 +780,10 @@ C:\Users\MONSTER\GitHub\BioEkran\UygulamaUI\obj\Release\netcoreapp3.1\UygulamaUI
 C:\Users\MONSTER\GitHub\BioEkran\UygulamaUI\obj\Release\netcoreapp3.1\UygulamaUI.TagHelpers.input.cache
 C:\Users\MONSTER\GitHub\BioEkran\UygulamaUI\obj\Release\netcoreapp3.1\UygulamaUI.TagHelpers.output.cache
 C:\Users\MONSTER\GitHub\BioEkran\UygulamaUI\obj\Release\netcoreapp3.1\UygulamaUI.RazorCoreGenerate.cache
-C:\Users\MONSTER\GitHub\BioEkran\UygulamaUI\obj\Release\netcoreapp3.1\Razor\Views\Anasayfa\Index.cshtml.g.cs
 C:\Users\MONSTER\GitHub\BioEkran\UygulamaUI\obj\Release\netcoreapp3.1\Razor\Views\Contact\Index.cshtml.g.cs
 C:\Users\MONSTER\GitHub\BioEkran\UygulamaUI\obj\Release\netcoreapp3.1\Razor\Views\Content\Index.cshtml.g.cs
-C:\Users\MONSTER\GitHub\BioEkran\UygulamaUI\obj\Release\netcoreapp3.1\Razor\Views\Home\GetCharts.cshtml.g.cs
 C:\Users\MONSTER\GitHub\BioEkran\UygulamaUI\obj\Release\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
 C:\Users\MONSTER\GitHub\BioEkran\UygulamaUI\obj\Release\netcoreapp3.1\Razor\Views\Login\Index.cshtml.g.cs
-C:\Users\MONSTER\GitHub\BioEkran\UygulamaUI\obj\Release\netcoreapp3.1\Razor\Views\Rapor\Index.cshtml.g.cs
 C:\Users\MONSTER\GitHub\BioEkran\UygulamaUI\obj\Release\netcoreapp3.1\Razor\Views\Registration\Index.cshtml.g.cs
 C:\Users\MONSTER\GitHub\BioEkran\UygulamaUI\obj\Release\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\MONSTER\GitHub\BioEkran\UygulamaUI\obj\Release\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
@@ -803,3 +800,6 @@ C:\Users\MONSTER\GitHub\BioEkran\UygulamaUI\obj\Release\netcoreapp3.1\UygulamaUI
 C:\Users\MONSTER\GitHub\BioEkran\UygulamaUI\obj\Release\netcoreapp3.1\UygulamaUI.pdb
 C:\Users\MONSTER\GitHub\BioEkran\UygulamaUI\obj\Release\netcoreapp3.1\UygulamaUI.genruntimeconfig.cache
 C:\Users\MONSTER\GitHub\BioEkran\UygulamaUI\obj\Release\netcoreapp3.1\Razor\Views\Shared\_Header.cshtml.g.cs
+C:\Users\MONSTER\GitHub\BioEkran\UygulamaUI\obj\Release\netcoreapp3.1\Razor\Views\Report\Index.cshtml.g.cs
+C:\Users\MONSTER\GitHub\BioEkran\UygulamaUI\obj\Release\netcoreapp3.1\Razor\Views\TrackingNetwork\GetCharts.cshtml.g.cs
+C:\Users\MONSTER\GitHub\BioEkran\UygulamaUI\obj\Release\netcoreapp3.1\Razor\Views\TrackingNetwork\Index.cshtml.g.cs
