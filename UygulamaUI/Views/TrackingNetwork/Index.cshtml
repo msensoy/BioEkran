@@ -92,30 +92,7 @@
 </div>
 
 <script src="~/lib/jquery/dist/jquery.js"></script>
-<script>
-    $(document).ready(function () {
-        $("#ddlCihazlar").change(function () {
-            if ($("#ddlCihazlar option:selected").text() == "Cihaz Seçin") {
-                $("#deviceName").html("");
-                $("#deviceId").html("");
-                $("#deviceWMode").html("");
-                $("#divCharts").load(`/Home/GetCharts/${0}`);
-            }
-            $.ajax({
-                url: '/TrackingNetwork/GetDeviceInfo',
-                data: { id: $("#ddlCihazlar").val() },
-                success: function (device) {
-                    $("#deviceName").html(device.name);
-                    $("#deviceId").html(device.id);
-                    $("#deviceWMode").html(device.workingMode);
 
-                    $("#divCharts").load(`/Home/GetCharts/${device.id}`);
-                }
-            });
-        });
-
-    });
-</script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA4MlKy6TkDxM1mW6lpGj0-PlF1btdJsd8&callback=initMap"
         type="text/javascript"></script>
 <script>

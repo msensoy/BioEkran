@@ -66,7 +66,10 @@
 
 
         <div id="divCharts" class="col-sm-7  col-md-7 col-lg-7  border ml-3 gpdiv mt-md-3 mt-sm-3">
-            <img id="loader" src="~/img/Loader.gif" alt="Alternate Text" style="display:none; width:50%;" />
+            <div class="row justify-content-center">
+                <img id="loader" src="~/img/Loader.gif" alt="Alternate Text" style="display:none; width:50%;" />
+            </div>
+            
             @* graphics will come here *@
         </div>
     </div>
@@ -75,9 +78,9 @@
     <script>
         $(document).ready(function () {
             $("#ilceler").change(function () {
-                console.log($("#ilceler").val());
+
                 $.ajax({
-                    url: '/TrackingNetwork/GetDeviceInfo',
+                    url: '/Report/GetDeviceInfo',
                     data: { id: $("#ilceler").val() },
                     beforeSend: function () {
                         $("#loader").show();
@@ -89,8 +92,7 @@
                         $("#deviceName").html(device.name);
                         $("#deviceId").html(device.id);
                         $("#deviceWMode").html(device.workingMode);
-
-                        $("#divCharts").load(`/TrackingNetwork/GetCharts/${device.id}`);
+                        $("#divCharts").load(`/Report/GetCharts/${device.id}`);
                     },
                     error: function () {
                         alert("Hata oluştu");
