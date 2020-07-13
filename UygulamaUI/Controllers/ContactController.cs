@@ -15,6 +15,7 @@ namespace UygulamaUI.Controllers
             _accessToken = HttpContext.Session.GetString("accesstoken");
             if (string.IsNullOrEmpty(_accessToken))
             {
+
                 return RedirectToAction("Index", "Login");
             }
             return View();
