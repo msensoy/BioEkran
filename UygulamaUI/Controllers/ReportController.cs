@@ -81,6 +81,7 @@ namespace UygulamaUI.Controllers
         [Route("Report/GetCharts/{deviceId}")]
         public async Task<IActionResult> GetCharts(int deviceId)
         {
+            _accessToken = HttpContext.Session.GetString("accesstoken");
             var colorClass = new ColorsSet();
             var colorListForCharts = colorClass.Colors;
             if (deviceId == 0)
