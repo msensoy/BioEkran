@@ -40,21 +40,21 @@
 
 
                 </div>
-                <div class="row ml-1" style="height:35%;width:100%;padding-left:90px;">
+                <div class="row ml-1" style="height:35%;width:100%;padding-left:130px;">
                     <img src="~/img/IconGreen.PNG" style="max-width: 100%; max-height: 100%;" />
                 </div>
                 <div style="height:20%;width:100%; margin-top:-80px; margin-left:30px;">
                     <div class="row" style="width:30%; font-size:xx-large; color:forestgreen">
-                        <div>pH:</div>
-                        <div id="pHTop"></div></div>
-                    <div style="width:30%; font-size:x-large; color:rgba(11, 137, 11, 0.63)">İYİ</div>
+                        <div><span>pH:&nbsp</span></div>
+                        <div id="pHLevel"></div></div>
+                    <div style="width:30%; font-size:xx-large; color:rgba(11, 137, 11, 0.63)">İYİ</div>
                 </div>
                 <hr />
                 <div>
 
                     <div class="degerler row justify-content-between m-2 pl-3 border-bottom">
                         <div>pH:</div>
-                        <div class="mr-5">6.5-9</div>
+                        <div id="ph2Level" class="mr-5"></div>
                     </div>
 
                     <div class="degerler row justify-content-between m-2 pl-3 border-bottom">
@@ -78,7 +78,7 @@
                     </div>
                     <div class="degerler row justify-content-between m-2 pl-3 ">
                         <div>Su Seviyesi</div>
-                        <div class="mr-5">0</div>
+                        <div id="deviceWaterLevel" class="mr-5">0</div>
                     </div>
                 </div>
             </div>
@@ -118,10 +118,13 @@
         document.getElementById("divHarita").style.opacity = "0.3";
         $.ajax({
             url: '/Report/GetDeviceInfo',
-            data: { id: 1 },
+            data: { id: 4 },
           
-            success: function (device) {
-                $("#pHTop").html("6.5");
+            success: function (veriler) {
+                $("#deviceWaterLevel").html(veriler.device.waterLevel);
+                $("#pHLevel").html(veriler.phLevel);
+                $("#ph2Level").html(veriler.phLevel);
+
             },
             error: function () {
                 alert("Hata oluştu");

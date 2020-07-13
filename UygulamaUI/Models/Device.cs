@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 
 namespace UygulamaUI.Models
 {
@@ -20,5 +21,12 @@ namespace UygulamaUI.Models
 
         public string UserId { get; set; }
         public string UserName { get; set; }
+
+        private double waterLevel;
+        public double WaterLevel
+        {
+            get { return Math.Round(100-((waterLevel - 7) / 27 * 100), 2); }
+            set { waterLevel = value; }
+        }
     }
 }

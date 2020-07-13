@@ -74,8 +74,16 @@ namespace UygulamaUI.Controllers
             var apiService = new ApiServices();
             var devices = await _apiService.GetDevicesForCurrentUserAsync(_accessToken);
             var device = devices.Where(x => x.Id == id).FirstOrDefault();
+            if (id == 4)
+            {
+                var sensorDataList = await _apiService.SearchDevicesAsync(id, _accessToken);
+                var pHLevel = sensorDataList.Where(x => x.TypeId == 1).Select(x => x.Value).LastOrDefault(); // Ph için 1
+                var result = new { Device = device, PHLevel = pHLevel };
+                return Json(result);
+            }
 
             return Json(device);
+
         }
 
         [Route("Report/GetCharts/{deviceId}")]
@@ -119,6 +127,7 @@ namespace UygulamaUI.Controllers
             }
             return View();
         }
+
 
         [ViewData]
         public List<Chart> Charts { get; set; }

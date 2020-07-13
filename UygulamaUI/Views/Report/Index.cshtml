@@ -78,7 +78,7 @@
     <script>
         $(document).ready(function () {
             $("#ilceler").change(function () {
-
+             
                 $.ajax({
                     url: '/Report/GetDeviceInfo',
                     data: { id: $("#ilceler").val() },
@@ -89,9 +89,11 @@
                         $("#loader").hide();
                     },
                     success: function (device) {
+                        console.log(device);
                         $("#deviceName").html(device.name);
                         $("#deviceId").html(device.id);
                         $("#deviceWMode").html(device.workingMode);
+                        $("#deviceWaterLevel").html(device.waterLevel);
                         $("#divCharts").load(`/Report/GetCharts/${device.id}`);
                     },
                     error: function () {
