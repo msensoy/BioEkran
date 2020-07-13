@@ -25,7 +25,7 @@ namespace UygulamaUI.Models
         private double waterLevel;
         public double WaterLevel
         {
-            get { return Math.Round(100-((waterLevel - 7) / 27 * 100), 2); }
+            get { return Math.Max(0, (Math.Round((100 - ((waterLevel - 7) / 27 * 100)), 1))); }
             set { waterLevel = value; }
         }
     }

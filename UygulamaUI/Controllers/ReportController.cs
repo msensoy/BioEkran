@@ -74,15 +74,13 @@ namespace UygulamaUI.Controllers
             var apiService = new ApiServices();
             var devices = await _apiService.GetDevicesForCurrentUserAsync(_accessToken);
             var device = devices.Where(x => x.Id == id).FirstOrDefault();
-            if (id == 4)
-            {
-                var sensorDataList = await _apiService.SearchDevicesAsync(id, _accessToken);
-                var pHLevel = sensorDataList.Where(x => x.TypeId == 1).Select(x => x.Value).LastOrDefault(); // Ph için 1
-                var result = new { Device = device, PHLevel = pHLevel };
-                return Json(result);
-            }
 
-            return Json(device);
+            var sensorDataList = await _apiService.SearchDevicesAsync(device.Id, _accessToken);
+            var pHLevel = sensorDataList.Where(x => x.TypeId == 1).Select(x => Math.Round(((double)x.Value),1)).LastOrDefault(); // Ph için 1
+            var result = new { Device = device, PHLevel = pHLevel };
+            return Json(result);
+
+
 
         }
 
@@ -105,8 +103,8 @@ namespace UygulamaUI.Controllers
             var sensorDataList = await _apiService.SearchDevicesAsync(deviceId, _accessToken);
             var sensorTypeList = await _apiService.GetSensorTypesAsync(_accessToken);
 
-         
-            
+
+
             for (int i = 0; i < sensorTypeList.Count; i++)
             {
 

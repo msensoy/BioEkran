@@ -1424,3 +1424,4 @@ C:\Users\MONSTER\GitHub\BioEkran\UygulamaUI\obj\Debug\netcoreapp3.1\Razor\Views\
 C:\Users\MONSTER\GitHub\BioEkran\UygulamaUI\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
 C:\Users\MONSTER\GitHub\BioEkran\UygulamaUI\obj\Debug\netcoreapp3.1\Razor\Views\Report\Index.cshtml.g.cs
 C:\Users\MONSTER\GitHub\BioEkran\UygulamaUI\obj\Debug\netcoreapp3.1\Razor\Views\Report\GetCharts.cshtml.g.cs
+C:\Users\MONSTER\GitHub\BioEkran\UygulamaUI\obj\Debug\netcoreapp3.1\UygulamaUI.csprojAssemblyReference.cache

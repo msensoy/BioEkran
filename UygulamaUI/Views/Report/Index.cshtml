@@ -88,13 +88,13 @@
                     complete: function () {
                         $("#loader").hide();
                     },
-                    success: function (device) {
-                        console.log(device);
-                        $("#deviceName").html(device.name);
-                        $("#deviceId").html(device.id);
-                        $("#deviceWMode").html(device.workingMode);
-                        $("#deviceWaterLevel").html(device.waterLevel);
-                        $("#divCharts").load(`/Report/GetCharts/${device.id}`);
+                    success: function (veriler) {
+                        console.log(veriler);
+                        $("#deviceName").html(veriler.device.name);
+                        $("#deviceId").html(veriler.device.id);
+                        $("#deviceWMode").html(veriler.device.workingMode);
+                        $("#deviceWaterLevel").html(veriler.device.waterLevel);
+                        $("#divCharts").load(`/Report/GetCharts/${veriler.device.id}`);
                     },
                     error: function () {
                         alert("Hata oluştu");

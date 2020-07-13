@@ -801,5 +801,5 @@ C:\Users\MONSTER\GitHub\BioEkran\UygulamaUI\obj\Release\netcoreapp3.1\UygulamaUI
 C:\Users\MONSTER\GitHub\BioEkran\UygulamaUI\obj\Release\netcoreapp3.1\UygulamaUI.genruntimeconfig.cache
 C:\Users\MONSTER\GitHub\BioEkran\UygulamaUI\obj\Release\netcoreapp3.1\Razor\Views\Shared\_Header.cshtml.g.cs
 C:\Users\MONSTER\GitHub\BioEkran\UygulamaUI\obj\Release\netcoreapp3.1\Razor\Views\Report\Index.cshtml.g.cs
-C:\Users\MONSTER\GitHub\BioEkran\UygulamaUI\obj\Release\netcoreapp3.1\Razor\Views\TrackingNetwork\GetCharts.cshtml.g.cs
 C:\Users\MONSTER\GitHub\BioEkran\UygulamaUI\obj\Release\netcoreapp3.1\Razor\Views\TrackingNetwork\Index.cshtml.g.cs
+C:\Users\MONSTER\GitHub\BioEkran\UygulamaUI\obj\Release\netcoreapp3.1\Razor\Views\Report\GetCharts.cshtml.g.cs
