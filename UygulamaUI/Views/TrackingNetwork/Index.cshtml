@@ -44,7 +44,9 @@
                     <img src="~/img/IconGreen.PNG" style="max-width: 100%; max-height: 100%;" />
                 </div>
                 <div style="height:20%;width:100%; margin-top:-80px; margin-left:30px;">
-                    <div style="width:30%; font-size:xx-large; color:forestgreen">pH:7</div>
+                    <div class="row" style="width:30%; font-size:xx-large; color:forestgreen">
+                        <div>pH:</div>
+                        <div id="pHTop"></div></div>
                     <div style="width:30%; font-size:x-large; color:rgba(11, 137, 11, 0.63)">İYİ</div>
                 </div>
                 <hr />
@@ -114,6 +116,17 @@
     function openForm() {
         document.getElementById("gosterge").style.display = "block";
         document.getElementById("divHarita").style.opacity = "0.3";
+        $.ajax({
+            url: '/Report/GetDeviceInfo',
+            data: { id: 1 },
+          
+            success: function (device) {
+                $("#pHTop").html("6.5");
+            },
+            error: function () {
+                alert("Hata oluştu");
+            }
+        });
     };
 
     function closeForm() {
